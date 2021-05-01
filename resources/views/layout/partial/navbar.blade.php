@@ -26,7 +26,7 @@
                 <div class="col-md-3">
                     <div class="header-logo">
                         <a href="" class="logo">
-                            <img src="public/img/remyX.png" alt=" ">
+                            <img src="public/img/logo.png" alt=" ">
                         </a>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
                         <!-- Profilim -->
                         <div>
                             <a href="#">
-                                <i class="fa fa-user-circle"></i>
+                                <i class="fa fa-user fa-3x"></i>
                                 <span>Oturum Aç</span>
                             </a>
                         </div>
