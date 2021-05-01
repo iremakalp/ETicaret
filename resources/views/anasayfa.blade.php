@@ -235,7 +235,7 @@
                                     <!-- product2 -->
                                     <div class="product">
                                         <div class="product-img">
-                                            <img src="./img/product07.png" alt="">
+                                            <img src="./img/telefon.jpg" alt="">
                                             <div class="product-label">
                                                 <span class="new">NEW</span>
                                             </div>
@@ -243,7 +243,7 @@
                                         <div class="product-body">
                                             <p class="product-category">Akıllı Telefon</p>
                                             <h3 class="product-name"><a href="#">Ürün Adı</a></h3>
-                                            <h4 class="product-price">980.00TL <del class="product-old-price">990.00TL</del></h4>
+                                            <h4 class="product-price">7849TL <del class="product-old-price">7999TL</del></h4>
                                             <div class="product-rating">
                                                 <i class="fa fa-star"></i>
                                                 <i class="fa fa-star"></i>
@@ -265,15 +265,15 @@
                                     <!-- product3 -->
                                     <div class="product">
                                         <div class="product-img">
-                                            <img src="./img/product08.png" alt="">
+                                            <img src="./img/bilgisayar.png" alt="">
                                             <div class="product-label">
-                                                <span class="sale">-30%</span>
+                                                <span class="sale">7%</span>
                                             </div>
                                         </div>
                                         <div class="product-body">
                                             <p class="product-category">Laptop</p>
                                             <h3 class="product-name"><a href="#">Ürün Adı</a></h3>
-                                            <h4 class="product-price">980.00TL <del class="product-old-price">990.00TL</del></h4>
+                                            <h4 class="product-price">4199TL <del class="product-old-price">4499TL</del></h4>
                                             <div class="product-rating">
                                                 <i class="fa fa-star"></i>
                                                 <i class="fa fa-star"></i>
