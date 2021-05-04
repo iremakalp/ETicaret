@@ -89,10 +89,13 @@ ul, ol {
 /*----------------------------*\
 	Buttons
 \*----------------------------*/
-
+.buton{
+    width: 100px;
+}
 .primary-btn {
+
   display: inline-block;
-  padding: 12px 30px;
+    padding: 12px 30px;
   background-color: #D10024;
   border: none;
   border-radius: 40px;
@@ -1850,6 +1853,7 @@ textarea.input {
 }
 
 .order-details {
+    width: 500px;
   position: relative;
   padding: 0px 30px 30px;
   border-right: 1px solid #E4E7ED;
@@ -1908,6 +1912,7 @@ textarea.input {
 }
 
 .order-details .order-submit {
+    width: 100px;
   display: block;
   margin-top: 30px;
 }
