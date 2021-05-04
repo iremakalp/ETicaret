@@ -23,13 +23,7 @@
             <!-- row -->
             <div class="row">
                 <!-- LOGO -->
-                <div class="col-md-3">
-                    <div class="header-logo">
-                        <a href="" class="logo">
-                            <img src="public/img/logo.png" alt=" ">
-                        </a>
-                    </div>
-                </div>
+                <div class="col-md-9"></div>
                 <!-- /LOGO -->
                 <!-- ACCOUNT -->
                 <div class="col-md-3 clearfix">
@@ -55,7 +49,7 @@
                                 <div class="cart-list">
                                     <div class="product-widget">
                                         <div class="product-img">
-                                            <img src="./img/product01.png" alt="">
+                                            <img src="/img/product01.png" alt="">
                                         </div>
                                         <div class="product-body">
                                             <h3 class="product-name"><a href="#">Ürün Adı</a></h3>
@@ -66,7 +60,7 @@
 
                                     <div class="product-widget">
                                         <div class="product-img">
-                                            <img src="./img/product02.png" alt="">
+                                            <img src="/img/product02.png" alt="">
                                         </div>
                                         <div class="product-body">
                                             <h3 class="product-name"><a href="#">Ürün Adı</a></h3>
