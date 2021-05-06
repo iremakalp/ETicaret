@@ -100,24 +100,4 @@
     <!-- /MAIN HEADER -->
 </header>
 <!-- /HEADER -->
-<!-- NAVIGATION -->
-<nav id="navigation">
-    <!-- container -->
-    <div class="container">
-        <!-- responsive-nav -->
-        <div id="responsive-nav">
-            <!-- NAV -->
-            <ul class="main-nav nav navbar-nav">
-                <li class="active"><a href="#">Anasayfa</a></li>
-                <li><a href="#">Laptop</a></li>
-                <li><a href="#">Akıllı Telefon</a></li>
-                <li><a href="#">Kamera</a></li>
-                <li><a href="#">Aksesuar</a></li>
-            </ul>
-            <!-- /NAV -->
-        </div>
-        <!-- /responsive-nav -->
-    </div>
-    <!-- /container -->
-</nav>
-<!-- /NAVIGATION -->
+

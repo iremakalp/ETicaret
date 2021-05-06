@@ -1,5 +1,5 @@
 @extends('layout.master')
-@section('title','Kategori') {{-- degistirilebilir alanı degistirmek icin--}}
+@section('title',$kategori->kategori_adi) {{-- degistirilebilir alanı degistirmek icin--}}
 @section('content')
     <!-- BREADCRUMB -->
     <div id="breadcrumb" class="section">
@@ -9,10 +9,8 @@
             <div class="row">
                 <div class="col-md-12">
                     <ul class="breadcrumb-tree">
-                        <li><a href="#">Anasayfa</a></li>
-                        <li><a href="#">Kategoriler</a></li>
-                        <li><a href="#">Aksesuar</a></li>
-                        <li class="active">Kulaklık</li>
+                        <li><a href="{{route('anasayfa')}}">Anasayfa</a></li>
+                        <li><a href="#">{{$kategori->kategori_adi}}</a></li>
                     </ul>
                 </div>
             </div>
@@ -32,62 +30,18 @@
                 <div id="aside" class="col-md-3">
                     <!-- aside Widget -->
                     <div class="aside">
-                        <h3 class="aside-title">Kategoriler</h3>
+                        <h3 class="aside-title">{{$kategori->kategori_adi}}</h3>
                         <div class="checkbox-filter">
-
-                            <div class="input-checkbox">
-                                <input type="checkbox" id="category-1">
-                                <label for="category-1">
-                                    <span></span>
-                                    Laptops
-                                    <small>(120)</small>
-                                </label>
-                            </div>
-
-                            <div class="input-checkbox">
-                                <input type="checkbox" id="category-2">
-                                <label for="category-2">
-                                    <span></span>
-                                    Smartphones
-                                    <small>(740)</small>
-                                </label>
-                            </div>
-
-                            <div class="input-checkbox">
-                                <input type="checkbox" id="category-3">
-                                <label for="category-3">
-                                    <span></span>
-                                    Cameras
-                                    <small>(1450)</small>
-                                </label>
-                            </div>
-
-                            <div class="input-checkbox">
-                                <input type="checkbox" id="category-4">
-                                <label for="category-4">
-                                    <span></span>
-                                    Accessories
-                                    <small>(578)</small>
-                                </label>
-                            </div>
-
-                            <div class="input-checkbox">
-                                <input type="checkbox" id="category-5">
-                                <label for="category-5">
-                                    <span></span>
-                                    Laptops
-                                    <small>(120)</small>
-                                </label>
-                            </div>
-
-                            <div class="input-checkbox">
-                                <input type="checkbox" id="category-6">
-                                <label for="category-6">
-                                    <span></span>
-                                    Smartphones
-                                    <small>(740)</small>
-                                </label>
-                            </div>
+                            <ul class="breadcrumb-tree">
+                                @foreach($alt_kategoriler as $alt_kategori)
+                                    <li>
+                                        <a href="{{route('kategori',$alt_kategori->slug)}}">
+                                            <i class="fa fa-arrow-circle-right fa-2x"></i>
+                                            {{$alt_kategori->kategori_adi}}
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ul>
                         </div>
                     </div>
                     <!-- /aside Widget -->

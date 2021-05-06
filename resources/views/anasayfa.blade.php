@@ -1,6 +1,31 @@
 @extends('layout.master')
 @section('title','Anasayfa')
 @section('content')
+    <!-- NAVIGATION -->
+    <nav id="navigation">
+        <!-- container -->
+        <div class="container">
+            <!-- responsive-nav -->
+            <div id="responsive-nav">
+                <!-- NAV -->
+                <ul class="main-nav nav navbar-nav">
+                    <li class="active"><a href="#">Anasayfa</a></li>
+                   @foreach($kategoriler as $kategori)
+                    <li>
+                        <a href="{{route('kategori',$kategori->slug)}}">
+                        {{$kategori->kategori_adi}}
+                        </a>
+                    </li>
+                    @endforeach
+
+                </ul>
+                <!-- /NAV -->
+            </div>
+            <!-- /responsive-nav -->
+        </div>
+        <!-- /container -->
+    </nav>
+    <!-- /NAVIGATION -->
     <!-- ÖNE ÇIKAN ÜRÜNLER SECTION -->
     <div class="section">
         <!-- container -->
@@ -26,22 +51,21 @@
                                     <!-- product1 -->
                                     <div class="product">
                                         <div class="product-img">
-                                            <img src="./img/product01.png" alt="">
+                                            <img src="./img/telefon1.png" alt="" height="60%">
                                             <div class="product-label">
-                                                <span class="sale">-30%</span>
                                                 <span class="new">NEW</span>
                                             </div>
                                         </div>
                                         <div class="product-body">
-                                            <p class="product-category">Laptop</p>
-                                            <h3 class="product-name"><a href="#">Ürün Adı</a></h3>
-                                            <h4 class="product-price">980.00TL <del class="product-old-price">990.00TL</del></h4>
+                                            <p class="product-category">Akıllı Telefon</p>
+                                            <h3 class="product-name"><a href="#">Huawei P40 Lite 128 GB Pembe Akıllı Telefon</a></h3>
+                                            <h4 class="product-price">3.499TL </h4>
                                             <div class="product-rating">
                                                 <i class="fa fa-star"></i>
                                                 <i class="fa fa-star"></i>
                                                 <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-o"></i>
+                                                <i class="fa fa-star-o"></i>
                                             </div>
                                             <div class="product-btns">
                                                 <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">İstek Listesine Ekle</span></button>
@@ -57,15 +81,15 @@
                                     <!-- product2 -->
                                     <div class="product">
                                         <div class="product-img">
-                                            <img src="./img/product02.png" alt="">
+                                            <img src="./img/kulaklık1.png" alt="">
                                             <div class="product-label">
                                                 <span class="new">NEW</span>
                                             </div>
                                         </div>
                                         <div class="product-body">
-                                            <p class="product-category">Category</p>
-                                            <h3 class="product-name"><a href="#">Ürün Adı</a></h3>
-                                            <h4 class="product-price">980.00TL <del class="product-old-price">990.00TL</del></h4>
+                                            <p class="product-category">Aksesuar</p>
+                                            <h3 class="product-name"><a href="#">Huawei Freebuds 3 Kulak içi Kablosuz Kulaklık Siyah</a></h3>
+                                            <h4 class="product-price">999 TL</h4>
                                             <div class="product-rating">
                                                 <i class="fa fa-star"></i>
                                                 <i class="fa fa-star"></i>
@@ -87,16 +111,21 @@
                                     <!-- product3 -->
                                     <div class="product">
                                         <div class="product-img">
-                                            <img src="./img/product03.png" alt="">
+                                            <img src="./img/laptop1.jpg" alt="">
                                             <div class="product-label">
-                                                <span class="sale">-30%</span>
+                                                <span class="sale">-11%</span>
                                             </div>
                                         </div>
                                         <div class="product-body">
-                                            <p class="product-category">Aksesuar</p>
-                                            <h3 class="product-name"><a href="#">Ürün Adı</a></h3>
-                                            <h4 class="product-price">980.00TL <del class="product-old-price">990.00TL</del></h4>
+                                            <p class="product-category">Laptop</p>
+                                            <h3 class="product-name"><a href="#">Asus X543NA-GQ303T Celeron N3350  Gri Notebook</a></h3>
+                                            <h4 class="product-price">2.799 TL <del class="product-old-price">3.129 TL</del></h4>
                                             <div class="product-rating">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
                                             </div>
                                             <div class="product-btns">
                                                 <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">İstek Listesine Ekle</span></button>
@@ -112,12 +141,16 @@
                                     <!-- product4 -->
                                     <div class="product">
                                         <div class="product-img">
-                                            <img src="./img/product04.png" alt="">
+                                            <img src="./img/webcam1.jpg" alt="">
+                                            <div class="product-label">
+                                                <span class="sale">-8%</span>
+                                            </div>
                                         </div>
+
                                         <div class="product-body">
-                                            <p class="product-category">Laptop</p>
-                                            <h3 class="product-name"><a href="#">Ürün Adı</a></h3>
-                                            <h4 class="product-price">980.00TL <del class="product-old-price">990.00TL</del></h4>
+                                            <p class="product-category">Aksesuar</p>
+                                            <h3 class="product-name"><a href="#"></a>Logitech C270 HD Webcam </h3>
+                                            <h4 class="product-price">329TL <del class="product-old-price">359TL</del></h4>
                                             <div class="product-rating">
                                                 <i class="fa fa-star"></i>
                                                 <i class="fa fa-star"></i>
@@ -139,13 +172,13 @@
                                     <!-- product5 -->
                                     <div class="product">
                                         <div class="product-img">
-                                            <img src="./img/xiaomi.jpg" alt="">
+                                            <img src="./img/mouse3.jpg" alt="">
                                         </div>
                                         <div class="product-body">
                                             <p class="product-category">Aksesuar</p>
                                             <h3 class="product-name"><a href="#">
-                                                    Xiaomi Haylou GT1 Plus TWS Kablosuz Bluetooth Kulaklık</a></h3>
-                                            <h4 class="product-price">169.90TL <del class="product-old-price">249.90TL</del></h4>
+                                                    Logitech M105 Kablolu Mouse (Mavi)</a></h3>
+                                            <h4 class="product-price">69.90TL</h4>
                                             <div class="product-rating">
                                                 <i class="fa fa-star"></i>
                                                 <i class="fa fa-star"></i>
@@ -204,22 +237,21 @@
                                     <!-- product1 -->
                                     <div class="product">
                                         <div class="product-img">
-                                            <img src="./img/product06.png" alt="">
+                                            <img src="./img/telefon2.jpg" alt="" height="60%">
                                             <div class="product-label">
-                                                <span class="sale">-30%</span>
-                                                <span class="new">NEW</span>
+                                                <span class="sale">-9%</span>
                                             </div>
                                         </div>
                                         <div class="product-body">
-                                            <p class="product-category">Laptop</p>
-                                            <h3 class="product-name"><a href="#">Ürün Adı</a></h3>
-                                            <h4 class="product-price">980.00TL <del class="product-old-price">990.00TL</del></h4>
+                                            <p class="product-category">Akıllı Telefon</p>
+                                            <h3 class="product-name"><a href="#">HSamsung Galaxy Note10 Lite Glow Akıllı Telefon</a></h3>
+                                            <h4 class="product-price">4.999TL <del class="product-old-price">5.499 TL</del></h4>
                                             <div class="product-rating">
                                                 <i class="fa fa-star"></i>
                                                 <i class="fa fa-star"></i>
                                                 <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-o"></i>
+                                                <i class="fa fa-star-o"></i>
                                             </div>
                                             <div class="product-btns">
                                                 <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">İstek Listesine Ekle</span></button>
@@ -235,15 +267,14 @@
                                     <!-- product2 -->
                                     <div class="product">
                                         <div class="product-img">
-                                            <img src="./img/telefon.jpg" alt="">
+                                            <img src="./img/kulaklık3.jpg" alt="">
                                             <div class="product-label">
-                                                <span class="new">NEW</span>
                                             </div>
                                         </div>
                                         <div class="product-body">
-                                            <p class="product-category">Akıllı Telefon</p>
-                                            <h3 class="product-name"><a href="#">Ürün Adı</a></h3>
-                                            <h4 class="product-price">7849TL <del class="product-old-price">7999TL</del></h4>
+                                            <p class="product-category">Aksesuar</p>
+                                            <h3 class="product-name"><a href="#">JBL Reflect Flow, True Wireless Kulaklık, Siyah </a></h3>
+                                            <h4 class="product-price">1.299 TL</h4>
                                             <div class="product-rating">
                                                 <i class="fa fa-star"></i>
                                                 <i class="fa fa-star"></i>
@@ -265,21 +296,21 @@
                                     <!-- product3 -->
                                     <div class="product">
                                         <div class="product-img">
-                                            <img src="./img/bilgisayar.png" alt="">
+                                            <img src="./img/laptop2.jpg" alt="">
                                             <div class="product-label">
-                                                <span class="sale">7%</span>
+                                                <span class="sale">-11%</span>
                                             </div>
                                         </div>
                                         <div class="product-body">
                                             <p class="product-category">Laptop</p>
-                                            <h3 class="product-name"><a href="#">Ürün Adı</a></h3>
-                                            <h4 class="product-price">4199TL <del class="product-old-price">4499TL</del></h4>
+                                            <h3 class="product-name"><a href="#">Lenovo Yoga C740 81TC000VTX Intel i7-10510U</a></h3>
+                                            <h4 class="product-price">10.999TL <del class="product-old-price">12.299 TL</del></h4>
                                             <div class="product-rating">
                                                 <i class="fa fa-star"></i>
                                                 <i class="fa fa-star"></i>
                                                 <i class="fa fa-star"></i>
                                                 <i class="fa fa-star"></i>
-                                                <i class="fa fa-star-o"></i>
+                                                <i class="fa fa-star"></i>
                                             </div>
                                             <div class="product-btns">
                                                 <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">İstek Listesine Ekle</span></button>
@@ -295,12 +326,16 @@
                                     <!-- product4 -->
                                     <div class="product">
                                         <div class="product-img">
-                                            <img src="./img/product09.png" alt="">
+                                            <img src="./img/webcam1.jpg" alt="">
+                                            <div class="product-label">
+                                                <span class="sale">-5%</span>
+                                            </div>
                                         </div>
+
                                         <div class="product-body">
-                                            <p class="product-category">Kamera</p>
-                                            <h3 class="product-name"><a href="#">Ürün Adı</a></h3>
-                                            <h4 class="product-price">980.00TL <del class="product-old-price">990.00TL</del></h4>
+                                            <p class="product-category">Aksesuar</p>
+                                            <h3 class="product-name"><a href="#"></a>Logitech C310 Siyah HD Webcam  </h3>
+                                            <h4 class="product-price">379TL <del class="product-old-price">399TL</del></h4>
                                             <div class="product-rating">
                                                 <i class="fa fa-star"></i>
                                                 <i class="fa fa-star"></i>
@@ -322,12 +357,13 @@
                                     <!-- product5 -->
                                     <div class="product">
                                         <div class="product-img">
-                                            <img src="./img/product01.png" alt="">
+                                            <img src="./img/mouse4.jpg" alt="">
                                         </div>
                                         <div class="product-body">
-                                            <p class="product-category">Laptop</p>
-                                            <h3 class="product-name"><a href="#">Ürün Adı</a></h3>
-                                            <h4 class="product-price">980.00TL <del class="product-old-price">990.00TL</del></h4>
+                                            <p class="product-category">Aksesuar</p>
+                                            <h3 class="product-name"><a href="#">
+                                                    HP V0L79AA Kablosuz Mouse (Siyah) </a></h3>
+                                            <h4 class="product-price">159.90TL</h4>
                                             <div class="product-rating">
                                                 <i class="fa fa-star"></i>
                                                 <i class="fa fa-star"></i>

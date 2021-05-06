@@ -12,10 +12,12 @@ class KategoriTableSeeder extends Seeder
     public function run()
     {
         DB::table('kategori')->truncate();
-        DB::table('kategori')->insert(['kategori_adi'=>'Aksesuar','slug'=>'aksesuar']);
+        $id= DB::table('kategori')->insertGetId(['kategori_adi'=>'Aksesuar','slug'=>'aksesuar']);
+        DB::table('kategori')->insert(['kategori_adi'=>'Kulaklık','slug'=>'kulaklik','ust_id'=>$id]);
+        DB::table('kategori')->insert(['kategori_adi'=>'Mouse','slug'=>'mouse','ust_id'=>$id]);
+        DB::table('kategori')->insert(['kategori_adi'=>'Telefon Kılıfı','slug'=>'telefon-kilifi','ust_id'=>$id]);
+        DB::table('kategori')->insert(['kategori_adi'=>'Webcam','slug'=>'webcam','ust_id'=>$id]);
         DB::table('kategori')->insert(['kategori_adi'=>'Laptop','slug'=>'laptop']);
-        DB::table('kategori')->insert(['kategori_adi'=>'Kamera','slug'=>'kamera']);
         DB::table('kategori')->insert(['kategori_adi'=>'Akıllı Telefon','slug'=>'akilli-telefon']);
-
     }
 }
