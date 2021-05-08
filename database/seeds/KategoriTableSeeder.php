@@ -19,5 +19,6 @@ class KategoriTableSeeder extends Seeder
         DB::table('kategori')->insert(['kategori_adi'=>'Webcam','slug'=>'webcam','ust_id'=>$id]);
         DB::table('kategori')->insert(['kategori_adi'=>'Laptop','slug'=>'laptop']);
         DB::table('kategori')->insert(['kategori_adi'=>'Akıllı Telefon','slug'=>'akilli-telefon']);
+        DB::table('kategori')->insert(['kategori_adi'=>'Fotoğraf Makinesi ve Kamera','slug'=>'kamera']);
     }
 }
