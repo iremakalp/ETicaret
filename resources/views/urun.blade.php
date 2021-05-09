@@ -1,5 +1,5 @@
 @extends('layout.master')
-@section('title','Ürün') {{-- degistirilebilir alanı degistirmek icin--}}
+@section('title',$urun->urun_adi) {{-- degistirilebilir alanı degistirmek icin--}}
 @section('content')
     <!-- BREADCRUMB -->
     <div id="breadcrumb" class="section">
@@ -9,11 +9,12 @@
             <div class="row">
                 <div class="col-md-12">
                     <ul class="breadcrumb-tree">
-                        <li><a href="#">Anasayfa</a></li>
-                        <li><a href="#">Kategoriler</a></li>
-                        <li><a href="#">Aksesuar</a></li>
-                        <li><a href="#">Kulaklık</a></li>
-                        <li class="active">Xiamoi Bluetooth</li>
+                        <li><a href="{{route('anasayfa')}}">Anasayfa</a></li>
+                        @foreach($urun->kategoriler as $kategori)
+                            <li><a href="{{route('kategori',$kategori->slug)}}">{{$kategori ->kategori_adi}}</a></li>
+                        @endforeach
+                        <li class="active"><a href="{{route('urun',$urun->slug)}}">{{$urun->urun_adi}}</a></li>
+
                     </ul>
                 </div>
             </div>
@@ -33,7 +34,7 @@
                 <div class="col-md-5 col-md-push-2">
                     <div id="product-main-img">
                         <div class="product-preview">
-                            <img src="/img/product01.png" alt="">
+                            <img src="{{$urun->url}}" alt="">
                         </div>
                     </div>
                 </div>
@@ -42,7 +43,7 @@
                 <div class="col-md-2  col-md-pull-5">
                     <div id="product-imgs">
                         <div class="product-preview">
-                            <img src="/img/product01.png" alt="">
+                            <img src="{{$urun->url}}" alt="">
                         </div>
                     </div>
                 </div>
@@ -51,7 +52,7 @@
                 <!-- Product details -->
                 <div class="col-md-5">
                     <div class="product-details">
-                        <h2 class="product-name">product name goes here</h2>
+                        <h2 class="product-name">{{$urun->urun_adi}}</h2>
                         <div>
                             <div class="product-rating">
                                 <i class="fa fa-star"></i>
@@ -60,23 +61,12 @@
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star-o"></i>
                             </div>
-                            <a class="review-link" href="#">10 Review(s) | Add your review</a>
+                            <a class="review-link" href="#"></a>
                         </div>
                         <div>
-                            <h3 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h3>
-                            <span class="product-available">In Stock</span>
+                            <h3 class="product-price">{{$urun->fiyati}}</h3>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-
-                        <div class="product-options">
-                            <label>
-                                Color
-                                <select class="input-select">
-                                    <option value="0">Red</option>
-                                </select>
-                            </label>
-                        </div>
-
+                        <p> {{$urun->aciklama}}</p>
                         <div class="add-to-cart">
                             <div class="qty-label">
                                 Adet
@@ -88,12 +78,6 @@
                             </div>
                             <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Sepete Ekle</button>
                         </div>
-                        <ul class="product-links">
-                            <li>Category:</li>
-                            <li><a href="#">Headphones</a></li>
-                            <li><a href="#">Accessories</a></li>
-                        </ul>
-
                         <ul class="product-links">
                             <li>Share:</li>
                             <li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -111,24 +95,12 @@
                     <div id="product-tab">
                         <!-- product tab nav -->
                         <ul class="tab-nav">
-                            <li class="active"><a data-toggle="tab" href="#tab1">Description</a></li>
-                            <li><a data-toggle="tab" href="#tab2">Details</a></li>
-                            <li><a data-toggle="tab" href="#tab3">Reviews (3)</a></li>
+                            <li><a data-toggle="tab" href="#tab3">Yorumlar</a></li>
                         </ul>
                         <!-- /product tab nav -->
 
                         <!-- product tab content -->
                         <div class="tab-content">
-                            <!-- tab1  -->
-                            <div id="tab1" class="tab-pane fade in active">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /tab1  -->
-
                             <!-- tab2  -->
                             <div id="tab2" class="tab-pane fade in">
                                 <div class="row">

@@ -18,7 +18,7 @@ class CreateKategoriUrunTable extends Migration
             $table->integer('kategori_id')->unsigned(); //unigned-> negatif sayı kullanma anlamına gelir
             $table->integer('urun_id')->unsigned();
 
-            $table->foreign('kategori_id')->references('id')->on('kategori')->onDelete('cascade');
+            $table->foreign('kategori_id')->references('id')->on('kategori')->onDelete('cascade'); //cascade bir urun silinirse ona ait diger tablolardan da bilgileri silmeye yarar
             $table->foreign('urun_id')->references('id')->on('urun')->onDelete('cascade');
         });
     }
