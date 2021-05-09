@@ -48,7 +48,7 @@
 
                     <!-- aside Widget -->
                     <div class="aside">
-                        <h3 class="aside-title">Price</h3>
+                        <h3 class="aside-title">Fiyat</h3>
                         <div class="price-filter">
                             <div id="price-slider"></div>
                             <div class="input-number price-min">
@@ -72,31 +72,16 @@
                     <!-- store top filter -->
                     <div class="store-filter clearfix">
                         <div class="store-sort">
-                            <label>
-                                Sort By:
-                                <select class="input-select">
-                                    <option value="0">Popular</option>
-                                    <option value="1">Position</option>
-                                </select>
-                            </label>
-
-                            <label>
-                                Show:
-                                <select class="input-select">
-                                    <option value="0">20</option>
-                                    <option value="1">50</option>
-                                </select>
-                            </label>
+                            <a href="?order=coksatanlar" class="primary-btn order-submit">Çok Satanlar</a>
+                            <a href="?order=yeni" class="primary-btn order-submit">Yeni Ürünler</a>
                         </div>
-
                     </div>
                     <!-- /store top filter -->
 
                     <!-- store products -->
                     <div class="row">
                         @foreach($urunler as $urun)
-
-                                <div class="col-md-4 col-xs-6">
+                            <div class="col-md-4 col-xs-6">
                                     <div class="product">
                                         <div class="product-img">
                                             <img src="{{$urun->url}}" alt="">
@@ -113,9 +98,10 @@
                                     <br><br><br>
                                 </div>
                             <div class="clearfix visible-sm visible-md"></div>
-
                         @endforeach
                     </div>
+                {{ request()->has('order') ? $urunler->appends(['order' => request('order')])->links() : $urunler->links() }}
+
                     <!-- /store products -->
                 </div>
                 <!-- /STORE -->
