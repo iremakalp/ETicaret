@@ -5,7 +5,7 @@
         <div class="container">
             <ul class="header-links pull-left">
                 <li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
-                <li><a href="#"><i class="fa fa-envelope-o"></i> email@email.com</a></li>
+                <li><a href="#"><i class="fa fa-envelope-o"></i> info@electro.com.tr</a></li>
                 <li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
             </ul>
         </div>
@@ -49,19 +49,18 @@
                                     <li><a href="{{ route('kullanici.oturumac') }}"><i class="fa fa-user "></i>Oturum Aç</a></li>
                                     <li><a href="{{ route('kullanici.kaydol') }}"><i class="fa fa-user "></i>Kaydol</a></li>
                                 @endguest
-
                                 @auth()
                                     <li class="dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-user-o"></i>{{ Auth::user()->adsoyad }} <span class="caret"></span></a>
                                         <li role="separator" class="divider"></li>
                                         <li>
                                             <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit()">Çıkış</a>
-                                            <form id="logout-form" action="" method="post" style="display: none;">
+                                            <form id="logout-form" action="{{route('kullanici.oturumukapat')}}" method="post" style="display: none;">
                                                 {{ csrf_field() }}
+
                                             </form>
                                         </li>
-                                        <li><a href="#"><i class="fa fa-shopping-cart"></i> Sepet <span class="badge badge-theme"></span></a></li>
-                                    </li>
+                                        <li><a href="{{ route('sepet') }}"><i class="fa fa-shopping-cart"></i> Sepet <span class="badge badge-theme">{{ Cart::count() }}</span></a></li>                                    </li>
                                 @endauth
                             </ul>
                         </div>

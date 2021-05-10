@@ -91,15 +91,20 @@
                                             <h3 class="product-name"><a href="{{route('urun',$urun->slug)}}">{{$urun->urun_adi}}</a></h3>
                                             <h4 class="product-price">{{$urun->fiyati}} ₺ </h4>
                                         </div>
-                                        <div class="add-to-cart">
-                                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Sepete Ekle</button>
-                                        </div>
+                                        <form action="{{route('sepet.ekle')}}" method="post">
+                                            {{ csrf_field() }}
+                                            <div class="add-to-cart">
+                                                <input type="hidden" name="id" value="{{$urun->id}}">
+                                                <button type="submit" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Sepete Ekle</button>
+                                            </div>
+                                        </form>
                                     </div>
                                     <br><br><br>
                                 </div>
                             <div class="clearfix visible-sm visible-md"></div>
                         @endforeach
                     </div>
+                    <br><br><br>
                 {{ request()->has('order') ? $urunler->appends(['order' => request('order')])->links() : $urunler->links() }}
 
                     <!-- /store products -->

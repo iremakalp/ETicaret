@@ -64,19 +64,17 @@
                             <a class="review-link" href="#"></a>
                         </div>
                         <div>
-                            <h3 class="product-price">{{$urun->fiyati}}</h3>
+                            <h3 class="product-price">{{$urun->fiyati}}₺ </h3>
                         </div>
                         <p> {{$urun->aciklama}}</p>
                         <div class="add-to-cart">
-                            <div class="qty-label">
-                                Adet
-                                <div class="input-number">
-                                    <input type="number">
-                                    <span class="qty-up">+</span>
-                                    <span class="qty-down">-</span>
+                            <form action="{{route('sepet.ekle')}}" method="post">
+                                {{ csrf_field() }}
+                                <div class="add-to-cart">
+                                    <input type="hidden" name="id" value="{{$urun->id}}">
+                                    <button type="submit" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Sepete Ekle</button>
                                 </div>
-                            </div>
-                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Sepete Ekle</button>
+                            </form>
                         </div>
                         <ul class="product-links">
                             <li>Share:</li>

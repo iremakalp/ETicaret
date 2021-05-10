@@ -7,9 +7,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Kaydol</div>
                     <div class="panel-body">
-
-                        @include('layout.partial.errors')
-
+                        @include('layout.partial.error')
                         <form class="form-horizontal" role="form" method="POST" action="{{ route('kullanici.kaydol') }}">
                             {{ csrf_field() }}
                             <div class="form-group">
