@@ -38,22 +38,6 @@ class SepetController extends Controller
                 ['adet' => $cartItem->qty, 'fiyati' => $urun->fiyati, 'durum' => 'Beklemede']
             );
         }
-        /*   if (auth()->check()) {
-               $aktif_sepet_id = session('aktif_sepet_id');
-               if (!isset($aktif_sepet_id)) {
-                   $aktif_sepet = Sepet::create([
-                       'kullanici_id' => auth()->id()
-                   ]);
-                   $aktif_sepet_id = $aktif_sepet->id;
-                   session()->put('aktif_sepet_id', $aktif_sepet_id);
-               }
-
-               SepetUrun::updateOrCreate(
-                   ['sepet_id' => $aktif_sepet_id, 'urun_id' => $urun->id],
-                   ['adet' => $cartItem->qty, 'fiyati' => $urun->fiyati, 'durum' => 'Beklemede']
-               );
-           }
-   */
         return redirect()->route('sepet')
             ->with('mesaj_tur', 'success')
             ->with('mesaj', 'Ürün sepete eklendi.');

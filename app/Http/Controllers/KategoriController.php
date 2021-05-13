@@ -11,7 +11,7 @@ class KategoriController extends Controller
     {
         $kategori=Kategori:: where('slug',$slug_kategoriadi)->firstOrFail();
         $alt_kategoriler=Kategori::where('ust_id',$kategori->id)->get();
-
+        $ust_kategori = Kategori::find($kategori->ust_id);
         $order=request('order');
 
         if($order=='coksatanlar') {
@@ -30,6 +30,6 @@ class KategoriController extends Controller
                 ->orderByDesc('guncelleme_tarihi')
                 ->simplePaginate(3);
         }
-        return view('kategori',compact('kategori','alt_kategoriler','urunler'));
+        return view('kategori',compact('kategori','alt_kategoriler','urunler','ust_kategori'));
     }
 }

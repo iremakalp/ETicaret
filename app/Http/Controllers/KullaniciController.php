@@ -11,6 +11,9 @@ use Cart;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
+use App\Http\Controllers\Controller;
+use Auth;
+
 
 class KullaniciController extends Controller
 {
@@ -28,7 +31,12 @@ class KullaniciController extends Controller
         if (auth()->attempt(['email' => request('email'), 'password' => request('sifre')], request()->has('benihatirla'))) {
 
             request()->session()->regenerate();
-            $aktif_sepet_id = Sepet::firstOrCreate(['kullanici_id' => auth()->id()])->id;
+            $aktif_sepet_id =Sepet::aktif_sepet_id();
+            if (!is_null($aktif_sepet_id))
+            {
+                $aktif_sepet=Sepet::create(['kullanici_id'=>auth()->id()]);
+                $aktif_sepet_id=$aktif_sepet->id;
+            }
             session()->put('aktif_sepet_id', $aktif_sepet_id);
             if (Cart::count() > 0) {
                 foreach (Cart::content() as $cartItem) {
@@ -73,7 +81,7 @@ class KullaniciController extends Controller
             'aktivasyon_anahtari' => Str::random(60), //rastgele metin olusturur
             'aktif_mi' => 0
         ]);
-
+        $kullanici->detay()->save(new KullaniciDetay());
         Mail::to(request('email'))->send(new KullaniciKayitMail($kullanici));
 
         auth()->login($kullanici); //veritabanina eklendikten sonra sisteme giris otomatiklesir
@@ -102,7 +110,56 @@ class KullaniciController extends Controller
     public function oturumukapat()
     {
         auth()->logout();
-
         return redirect()->route('anasayfa');
+    }
+
+    public function form($id = 0)
+    {
+        $kullanici = new Kullanici;
+        if ($id > 0) {
+            $kullanici = Kullanici::find($id);
+        }
+
+        return view('kullanici.form', compact('kullanici'));
+    }
+    public function kaydet($id = 0)
+    {
+        $this->validate(request(), [
+            'adsoyad' => 'required',
+            'email'   => 'required|email'
+        ]);
+
+        $data = request()->only('adsoyad', 'email');
+        if (request()->filled('sifre')) { //sifre yeniden girilmisse guncellemeye dahil edilir
+            $data['sifre'] = Hash::make(request('sifre'));
+        }
+        if ($id > 0) {
+            $kullanici = Kullanici::where('id', $id)->firstOrFail();
+            $kullanici->update($data);
+        } else {
+            $kullanici = Kullanici::create($data);
+        }
+
+        KullaniciDetay::updateOrCreate(
+            ['kullanici_id' => $kullanici->id],
+            [
+                'adres'       => request('adres'),
+                'telefon'     => request('telefon'),
+            ]
+        );
+
+        return redirect()
+            ->route('kullanici.duzenle', $kullanici->id)
+            ->with('mesaj', ($id > 0 ? 'Güncellendi' : 'Kaydedildi'))
+            ->with('mesaj_tur', 'success');
+    }
+    public function sil($id)
+    {
+        Kullanici::destroy($id);
+
+        return redirect()
+            ->route('anasayfa')
+            ->with('mesaj', 'Kayıt silindi')
+            ->with('mesaj_tur', 'success');
     }
 }

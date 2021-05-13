@@ -1,4 +1,4 @@
-@extends('layout.master')
+@extends('layouts.master')
 @section('title','Kaydol') {{-- degistirilebilir alanı degistirmek icin--}}
 @section('content')
     <div class="container" style="padding: 30px;">
@@ -7,7 +7,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Kaydol</div>
                     <div class="panel-body">
-                        @include('layout.partial.error')
+                        @include('layouts.partials.error')
                         <form class="form-horizontal" role="form" method="POST" action="{{ route('kullanici.kaydol') }}">
                             {{ csrf_field() }}
                             <div class="form-group">

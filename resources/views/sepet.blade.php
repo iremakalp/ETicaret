@@ -1,4 +1,4 @@
-@extends('layout.master')
+@extends('layouts.master')
 @section('title','Sepet') {{-- degistirilebilir alanı degistirmek icin--}}
 @section('content')
     <div class="section">
@@ -6,13 +6,11 @@
         <div class="container">
             <!-- row -->
             <div class="row">
-                <div class="col-md-7" style="@media only screen and (max-width: 959px)  {
-                      width: 50%;
-                }">
-                    <div class=" order-details" style="width: 900px">
+                <div class="col-md-7">
+                    <div class=" order-details" style="width: 900px;">
                         <div class="section-title text-center">
                             <h3 class="title">SEPET</h3>
-                            @include('layout.partial.alert')
+                            @include('layouts.partials.alert')
                         </div>
                         <div class="order-summary">
                             @if(count(Cart::content())>0)
@@ -85,7 +83,7 @@
                                     <tr>
                                         <td colspan="5" class="text-right">
                                             <div class="order-col">
-                                                <a href="#" class="primary-btn order-submit"
+                                                <a href="{{route('odeme')}}" class="primary-btn order-submit"
                                                    style="width: 120px; padding: 10px;float: left; margin: 2px;">Ödeme
                                                     Yap</a>
                                                 <form action="{{ route('sepet.bosalt') }}" method="post">

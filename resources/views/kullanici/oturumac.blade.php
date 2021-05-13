@@ -1,15 +1,15 @@
-@extends('layout.master')
+@extends('layouts.master')
 @section('title','Oturum Aç') {{-- degistirilebilir alanı degistirmek icin--}}
 @section('content')
     <div class="container" style="padding: 30px;">
-        @include('layout.partial.alert')
+        @include('layouts.partials.alert')
 
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">Oturum Aç</div>
                     <div class="panel-body">
-                        @include('layout.partial.error')
+                        @include('layouts.partials.error')
 
                         <form class="form-horizontal" role="form" method="POST" action="{{ route('kullanici.oturumac') }}">
                             {{ csrf_field() }}

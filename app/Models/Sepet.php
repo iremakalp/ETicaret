@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\DB;
 
 class Sepet extends Model
 {
@@ -30,9 +31,9 @@ class Sepet extends Model
     public static function aktif_sepet_id()
     {
         $aktif_sepet = DB::table('sepet as s')
-            ->leftJoin('siparis as si', 'si.sepet_id', '=', 's.id')
-            ->where('s.kullanici_id', auth()->id())
-            ->whereRaw('si.id is null')
+            ->leftJoin('siparis as si', 'si.sepet_id', '=', 's.id') //siparis tablosu ile sepeti iliski kuruldu
+            ->where('s.kullanici_id', auth()->id()) //sadece aktif kullanıiciya ait
+            ->whereRaw('si.id is null') //sepete ait siparis kaydi yoksa null olarak gelir
             ->orderByDesc('s.olusturma_tarihi')
             ->select('s.id')
             ->first();

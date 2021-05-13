@@ -1,4 +1,4 @@
-@extends('layout.master')
+@extends('layouts.master')
 @section('content')
     <div class="container" style="padding-top: 30px">
         <div class="jumbotron text-center">

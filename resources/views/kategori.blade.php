@@ -1,4 +1,4 @@
-@extends('layout.master')
+@extends('layouts.master')
 @section('title',$kategori->kategori_adi) {{-- degistirilebilir alanı degistirmek icin--}}
 @section('content')
     <!-- BREADCRUMB -->
@@ -31,6 +31,25 @@
                     <!-- aside Widget -->
                     <div class="aside">
                         <h3 class="aside-title">{{$kategori->kategori_adi}}</h3>
+
+                        <h7>Bu kategoride {{ $kategori->urunler->count() }} ürün bulunuyor.</h7>
+                        <hr>
+
+                        @if (count($alt_kategoriler)>0)
+                            <h4 class="aside-title" style="text-transform: capitalize;">Alt Kategoriler</h4>
+                        @else
+                            {{ $kategori->kategori_adi }} kategorisinde alt kategori bulunmuyor.
+                            <hr>
+                            @if ($ust_kategori != null)
+                                <a href="{{ route('kategori', $ust_kategori->slug) }}" class="primary-btn cta-btn" style="text-transform: capitalize;">
+                                    <i class="fa fa-arrow-circle-left"></i>
+
+                                    {{ $ust_kategori->kategori_adi }}
+                                </a>
+                                <hr>
+                            @endif
+                        @endif
+
                         <div class="checkbox-filter">
                             <ul class="breadcrumb-tree">
                                 @foreach($alt_kategoriler as $alt_kategori)
@@ -38,35 +57,15 @@
                                         <a href="{{route('kategori',$alt_kategori->slug)}}">
                                             <i class="fa fa-arrow-circle-right fa-2x"></i>
                                             {{$alt_kategori->kategori_adi}}
+                                            <hr>
                                         </a>
                                     </li>
                                 @endforeach
                             </ul>
                         </div>
                     </div>
-                    <!-- /aside Widget -->
-
-                    <!-- aside Widget -->
-                    <div class="aside">
-                        <h3 class="aside-title">Fiyat</h3>
-                        <div class="price-filter">
-                            <div id="price-slider"></div>
-                            <div class="input-number price-min">
-                                <input id="price-min" type="number">
-                                <span class="qty-up">+</span>
-                                <span class="qty-down">-</span>
-                            </div>
-                            <span>-</span>
-                            <div class="input-number price-max">
-                                <input id="price-max" type="number">
-                                <span class="qty-up">+</span>
-                                <span class="qty-down">-</span>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- /ASIDE -->
                 </div>
-                <!-- /ASIDE -->
-
                 <!-- STORE -->
                 <div id="store" class="col-md-9">
                     <!-- store top filter -->
@@ -82,32 +81,35 @@
                     <div class="row">
                         @foreach($urunler as $urun)
                             <div class="col-md-4 col-xs-6">
-                                    <div class="product">
-                                        <div class="product-img">
-                                            <img src="{{$urun->url}}" alt="">
-                                        </div>
-                                        <div class="product-body">
-                                            <p class="product-category">{{$kategori->kategori_adi}}</p>
-                                            <h3 class="product-name"><a href="{{route('urun',$urun->slug)}}">{{$urun->urun_adi}}</a></h3>
-                                            <h4 class="product-price">{{$urun->fiyati}} ₺ </h4>
-                                        </div>
-                                        <form action="{{route('sepet.ekle')}}" method="post">
-                                            {{ csrf_field() }}
-                                            <div class="add-to-cart">
-                                                <input type="hidden" name="id" value="{{$urun->id}}">
-                                                <button type="submit" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Sepete Ekle</button>
-                                            </div>
-                                        </form>
+                                <div class="product">
+                                    <div class="product-img">
+                                        <img src="{{$urun->url}}" alt="">
                                     </div>
-                                    <br><br><br>
+                                    <div class="product-body" style="max-height: 120px;">
+                                        <p class="product-category">{{$kategori->kategori_adi}}</p>
+                                        <h3 class="product-name"><a
+                                                href="{{route('urun',$urun->slug)}}">{{$urun->urun_adi}}</a></h3>
+                                        <h4 class="product-price">{{$urun->fiyati}} ₺ </h4>
+                                    </div>
+                                    <form action="{{route('sepet.ekle')}}" method="post">
+                                        {{ csrf_field() }}
+                                        <div class="add-to-cart">
+                                            <input type="hidden" name="id" value="{{$urun->id}}">
+                                            <button type="submit" class="add-to-cart-btn"><i
+                                                    class="fa fa-shopping-cart"></i>Sepete Ekle
+                                            </button>
+                                        </div>
+                                    </form>
                                 </div>
+                                <br><br><br>
+                            </div>
                             <div class="clearfix visible-sm visible-md"></div>
                         @endforeach
                     </div>
                     <br><br><br>
                 {{ request()->has('order') ? $urunler->appends(['order' => request('order')])->links() : $urunler->links() }}
 
-                    <!-- /store products -->
+                <!-- /store products -->
                 </div>
                 <!-- /STORE -->
             </div>

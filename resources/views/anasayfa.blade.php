@@ -1,15 +1,46 @@
-@extends('layout.master')
+@extends('layouts.master')
 @section('title','Anasayfa')
 @section('content')
+    <style>
+        @media only screen and (min-width: 990px) {
+            #gizle2 {
+                display: none;
+            }
+            #search-menu2 {
+                display: none;
+            }
+        }
+        @media only screen and (max-width: 370px) {
+            .hesap{
+                width: 40%;
+                height: 40%;
+            }
+            .form-group{
+                width: 50%;
+
+            }
+        }
+    </style>
     <!-- NAVIGATION -->
     <nav id="navigation">
         <!-- container -->
         <div class="container">
-        @include('layout.partial.alert')
+        @include('layouts.partials.alert')
             <!-- responsive-nav -->
             <div id="responsive-nav">
                 <!-- NAV -->
                 <ul class="main-nav nav navbar-nav">
+                    <li>
+                        <div class="col-md-6">
+                            <div class="header-search" id="gizle2">
+                                <form action="{{route('urun_ara')}}" method="post">
+                                    {{csrf_field()}}
+                                    <input class="input" name="aranan" placeholder="Ara" style="width: 100px;">
+                                    <button class="search-btn">Ara</button>
+                                </form>
+                            </div>
+                        </div>
+                    </li>
                     <li class="active"><a href="#">Anasayfa</a></li>
                    @foreach($kategoriler as $kategori)
                     <li>
@@ -18,6 +49,38 @@
                         </a>
                     </li>
                     @endforeach
+                    <li>
+                        <a href="{{ route('sepet') }}" id="gizle2"><i class="fa fa-shopping-cart"></i> Sepet <span
+                                class="qty">{{ Cart::count() }}</span></a>
+                    </li>
+                    @guest()
+                        <li class="dropdown" style="text-color: whitesmoke;" id="gizle2">
+                            <a href="#" class="dropdown-toggle"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Giriş  <i class="fa fa-user-o"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ route('kullanici.oturumac') }}">Oturum Aç</a></li>
+
+                                <li><a href="{{ route('kullanici.kaydol') }}">Kaydol</a>
+                                </li>
+                            </ul>
+                        </li>
+                    @endguest
+                    @auth()
+                        <li class="dropdown"id="gizle2">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->adsoyad }} <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{route('kullanici.duzenle', Auth::user()->id) }}">Profil</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="{{ route('siparisler') }}">Siparişlerim</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li>
+                                    <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit()">Çıkış</a>
+                                    <form id="logout-form" action="{{route('kullanici.oturumukapat')}}" method="post" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                    @endauth
 
                 </ul>
                 <!-- /NAV -->
@@ -53,9 +116,9 @@
                                         <!-- product1 -->
                                             <div class="product">
                                                 <div class="product-img">
-                                                    <img src="{{$urun->url}}" alt="" height="60%">
+                                                    <img src="{{$urun->url}}" alt="">
                                                 </div>
-                                                <div class="product-body">
+                                                <div class="product-body" style="max-height: 150px;">
                                                     <h3 class="product-name"><a href="{{route('urun',$urun->slug)}}">{{$urun->urun_adi}}</a></h3>
                                                     <h4 class="product-price">{{$urun->fiyati}}₺ </h4>
                                                     <div class="product-rating">
@@ -119,7 +182,7 @@
                                             <div class="product-img">
                                                 <img src="{{$urun->url}}" alt="">
                                             </div>
-                                            <div class="product-body">
+                                            <div class="product-body" style="max-height: 150px;">
                                                 <h3 class="product-name"><a href="{{route('urun',$urun->slug)}}">{{$urun->urun_adi}}</a></h3>
                                                 <h4 class="product-price">{{$urun->fiyati}}</h4>
                                                 <div class="product-rating">
