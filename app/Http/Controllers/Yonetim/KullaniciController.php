@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Yonetim;
 
 use App\Http\Controllers\Controller;
+use App\Models\Kategori;
 use App\Models\Kullanici;
 use App\Models\KullaniciDetay;
 use Auth;
@@ -49,14 +50,14 @@ class KullaniciController extends Controller
             $aranan = request('aranan');
             $list = Kullanici::where('adsoyad', 'like', "%$aranan%")
                 ->orWhere('email', 'like', "%$aranan%")
-                ->orderByDesc('olusturma_tarihi')
                 ->paginate(8)
                 ->appends('aranan', $aranan);
         } else {
-            $list = Kullanici::orderByDesc('olusturma_tarihi')->simplePaginate(4);
+            $list = Kullanici::simplePaginate(8);
         }
+        $kategoriler=Kategori::whereRaw('ust_id is null')->get();
 
-        return view('yonetim.kullanici.index', compact('list'));
+        return view('yonetim.kullanici.index', compact('list','kategoriler'));
     }
     public function form($id = 0)
     {
@@ -64,8 +65,9 @@ class KullaniciController extends Controller
         if ($id > 0) {
             $entry = Kullanici::find($id);
         }
+        $kategoriler=Kategori::whereRaw('ust_id is null')->get();
 
-        return view('yonetim.kullanici.form', compact('entry'));
+        return view('yonetim.kullanici.form', compact('entry','kategoriler'));
     }
 
     public function kaydet($id = 0)

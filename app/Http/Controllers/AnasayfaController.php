@@ -22,5 +22,7 @@ class AnasayfaController extends Controller
             ->orderBy('guncelleme_tarihi', 'desc')
             ->take(6)->get();
         return view('anasayfa', compact('kategoriler','urunler_one_cikan','urunler_cok_satan'));
+
+
     }
 }

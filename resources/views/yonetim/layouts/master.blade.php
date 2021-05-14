@@ -21,7 +21,6 @@
 </head>
 
 <body>
-
 @include('yonetim.layouts.partials.sidebar')
 @yield('content')
 <script src="/vendors/jquery/dist/jquery.min.js"></script>

@@ -72,13 +72,13 @@
                         <div>
                             <ul class="nav navbar-nav navbar-right">
                                 <li>
-                                    <a href="{{ route('sepet') }}" id="gizle"><i class="fa fa-shopping-cart"></i> Sepet
+                                    <a href="{{ route('sepet') }}" id="gizle" style="background-color:#D10024 ; border-radius: 30px; margin-right: 5px; color: whitesmoke;"><i class="fa fa-shopping-cart"></i> Sepet
                                         <span
                                             class="qty">{{ Cart::count() }}</span></a>
                                 </li>
                                 @guest()
-                                    <li class="dropdown" style="text-color: whitesmoke;" id="gizle">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                    <li class="dropdown" style="background-color: #D10024; border-radius: 30px; color: whitesmoke;" id="gizle">
+                                        <a href="#" style="background-color: #D10024; border-radius: 30px; color: whitesmoke;"  data-toggle="dropdown" role="button"
                                            aria-haspopup="true" aria-expanded="false">Giriş <i class="fa fa-user-o"></i></a>
                                         <ul class="dropdown-menu">
                                             <li><a href="{{ route('kullanici.oturumac') }}">Oturum Aç</a></li>
@@ -90,8 +90,8 @@
                                 @endguest
 
                                 @auth()
-                                    <li class="dropdown" id="gizle">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                    <li class="dropdown" id="gizle" >
+                                        <a href="#"  class="dropdown-toggle" style="background-color: #D10024; border-radius: 30px; color: whitesmoke;" data-toggle="dropdown" role="button"
                                            aria-haspopup="true" aria-expanded="false">{{ Auth::user()->adsoyad }} <span
                                                 class="caret"></span></a>
                                         <ul class="dropdown-menu">

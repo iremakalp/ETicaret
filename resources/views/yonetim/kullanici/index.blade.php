@@ -23,7 +23,7 @@
         </form>
     </div>
     @include('layouts.partials.alert')
-    <div class="content mt-3" style="width: 100%; height: 100%; @media(max-width: 1368px){ width: 10%; height: 20%; }">
+    <div class="content mt-3" style="width: 100%; height: 100%; @media(max-width: 999px){ width: 10%; height: 20%; }">
         <div class="animated fadeIn">
             <div class="row">
                 <div class="col-md-12">
@@ -38,7 +38,6 @@
                                     <th>#</th>
                                     <th>Ad Soyad</th>
                                     <th>Email</th>
-                                    <th>Aktif Mi</th>
                                     <th>Kullanıcı Tipi</th>
                                     <th>Kayıt Tarihi</th>
                                     <th></th>
@@ -55,20 +54,6 @@
                                         <td>{{ $entry->id }}</td>
                                         <td>{{ $entry->adsoyad }}</td>
                                         <td>{{ $entry->email }}</td>
-                                        <td>
-                                            @if ($entry->aktif_mi)
-                                                <span class="label label-success">Aktif</span>
-                                            @else
-                                                <span class="label label-warning">Pasif</span>
-                                            @endif
-                                        </td>
-                                        <td>
-                                            @if ($entry->yonetici_mi)
-                                                <span class="label label-success">Yönetici</span>
-                                            @else
-                                                <span class="label label-warning">Müşteri</span>
-                                            @endif
-                                        </td>
                                         <td>{{ $entry->olusturma_tarihi }}</td>
                                         <td>
                                             <a href="{{ route('yonetim.kullanici.duzenle', $entry->id) }}"
@@ -94,8 +79,6 @@
             </div>
         </div>
     </div><!-- .animated -->
-    </div><!-- .content -->
-    </div>
 @endsection
 @section('footer')
     <script>

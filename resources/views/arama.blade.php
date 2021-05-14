@@ -60,7 +60,7 @@
                             <div class="col-md-4 col-xs-6">
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src="{{$urun->url}}" alt="">
+                                        <img src="{{$urun->detay->urun_resmi}}" alt="">
                                     </div>
                                     <div class="product-body">
                                         <h3 class="product-name"><a href="{{route('urun',$urun->slug)}}">{{$urun->urun_adi}}</a></h3>

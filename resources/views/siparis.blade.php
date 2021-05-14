@@ -16,7 +16,7 @@
                     <tr>
                         <td style="width:120px">
                             <a href="{{ route('urun', $sepet_urun->urun->slug) }}">
-                                <img src="{{ $sepet_urun->urun->url}}" style="height: 120px;">
+                                <img src="{{ $sepet_urun->urun->detay->urun_resmi}}" style="height: 120px;">
                             </a>
                         </td>
                         <td>

@@ -83,7 +83,7 @@
                             <div class="col-md-4 col-xs-6">
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src="{{$urun->url}}" alt="">
+                                        <img src="{{$urun->detay->urun_resmi}}" alt="">
                                     </div>
                                     <div class="product-body" style="max-height: 120px;">
                                         <p class="product-category">{{$kategori->kategori_adi}}</p>

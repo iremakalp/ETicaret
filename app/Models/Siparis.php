@@ -13,7 +13,7 @@ class Siparis extends Model
 
     protected $fillable = [
         'sepet_id', 'siparis_tutari', 'durum',
-        'adsoyad', 'adres', 'telefon', 'ceptelefonu', 'banka', 'taksit_sayisi'
+        'adsoyad', 'adres', 'telefon', 'banka', 'taksit_sayisi'
     ];
 
     const CREATED_AT = 'olusturma_tarihi';

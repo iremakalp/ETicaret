@@ -55,11 +55,11 @@
                     </li>
                     @guest()
                         <li class="dropdown" style="text-color: whitesmoke;" id="gizle2">
-                            <a href="#" class="dropdown-toggle"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Giriş  <i class="fa fa-user-o"></i></a>
+                            <a href="#" class="dropdown-toggle"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Giriş  <i class="fa fa-user-o"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{ route('kullanici.oturumac') }}">Oturum Aç</a></li>
+                                <li><a style="color: whitesmoke;" href="{{ route('kullanici.oturumac') }}">Oturum Aç</a></li>
 
-                                <li><a href="{{ route('kullanici.kaydol') }}">Kaydol</a>
+                                <li><a style="color: whitesmoke;" href="{{ route('kullanici.kaydol') }}">Kaydol</a>
                                 </li>
                             </ul>
                         </li>
@@ -68,12 +68,12 @@
                         <li class="dropdown"id="gizle2">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->adsoyad }} <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{route('kullanici.duzenle', Auth::user()->id) }}">Profil</a></li>
+                                <li ><a style="color: whitesmoke;" href="{{route('kullanici.duzenle', Auth::user()->id) }}">Profil</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="{{ route('siparisler') }}">Siparişlerim</a></li>
+                                <li><a style="color: whitesmoke;" href="{{ route('siparisler') }}">Siparişlerim</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li>
-                                    <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit()">Çıkış</a>
+                                    <a style="color: whitesmoke;" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit()">Çıkış</a>
                                     <form id="logout-form" action="{{route('kullanici.oturumukapat')}}" method="post" style="display: none;">
                                         {{ csrf_field() }}
                                     </form>
@@ -116,7 +116,7 @@
                                         <!-- product1 -->
                                             <div class="product">
                                                 <div class="product-img">
-                                                    <img src="{{$urun->url}}" alt="">
+                                                    <img src="{{$urun->detay->urun_resmi}}" alt="">
                                                 </div>
                                                 <div class="product-body" style="max-height: 150px;">
                                                     <h3 class="product-name"><a href="{{route('urun',$urun->slug)}}">{{$urun->urun_adi}}</a></h3>
@@ -180,7 +180,7 @@
                                     <!-- product1 -->
                                         <div class="product" style="max-height: 80%;" >
                                             <div class="product-img">
-                                                <img src="{{$urun->url}}" alt="">
+                                                <img src="{{$urun->detay->urun_resmi}}" alt="">
                                             </div>
                                             <div class="product-body" style="max-height: 150px;">
                                                 <h3 class="product-name"><a href="{{route('urun',$urun->slug)}}">{{$urun->urun_adi}}</a></h3>

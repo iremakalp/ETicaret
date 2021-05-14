@@ -79,13 +79,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div>
                             <button type="submit" class="btn btn-primary btn-sm"
                                     style="border: none; background-color:#D10024; float: right; height: 40px; width: 100px; border-radius: 30px;">
                                 {{ $entry->id > 0 ? "Güncelle" : "Kaydet" }}
                             </button>
                         </div>
-
                     </div>
                 </div><!-- .animated -->
             </div><!-- .content -->

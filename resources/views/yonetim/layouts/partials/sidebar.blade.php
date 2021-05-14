@@ -6,30 +6,40 @@
                     aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fa fa-bars fa-3x"></i>
             </button>
-            <a class="navbar-brand" href=""><img src="/img/logo.png" alt="Logo"></a>
+            <a class="navbar-brand" href="{{route('yonetim.anasayfa')}}"><img src="/img/logo.png" alt="Logo"></a>
         </div>
 
         <div id="main-menu" class="main-menu collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="active">
-                    <a href="{{route('yonetim.anasayfa')}}"> <i class="menu-icon fa fa-dashboard"></i>KONTROL PANELİ </a>
-                </li>
-                <h3 class="menu-title">Kategori Ayarları</h3><!-- /.menu-title -->
-                <li>
-                    <a href="#">Kategoriler</a>
+                    <a href="{{route('yonetim.anasayfa')}}"> <i class="menu-icon fa fa-dashboard"></i>KONTROL PANELİ
+                    </a>
                 </li>
                 <li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                       aria-expanded="false">Kategori Ürünleri</a>
-                    <ul class="sub-menu children dropdown-menu">
+                    <h3 class="menu-title">Kategori ayarları</h3><!-- /.menu-title -->
 
-                        <li><i class="fa fa-th"></i><a href="">kategori</a></li>
-                        <li><i class="fa fa-th"></i><a href="">kategori</a></li>
+                <li class="menu-item-has-children dropdown">
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown" >Kategoriler</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li>
+                            <a href="{{ route('yonetim.kategori') }}" style="margin-left: -50px;">
+                                Tümü
+                            </a>
+                        </li>
+                @foreach($kategoriler as $kategori)
+
+                            <li>
+                                <a href="{{route('yonetim.kategori.urun',$kategori->id)}}" style="margin-left: -50px;">
+                                    {{$kategori->kategori_adi}}
+                                </a>
+                            </li>
+
+                @endforeach
                     </ul>
                 </li>
                 <h3 class="menu-title">Ürün Ayarları</h3><!-- /.menu-title -->
                 <li>
-                    <a href="#">Ürünler</a>
+                    <a href="{{route('yonetim.urun')}}">Ürünler</a>
                 </li>
                 <li>
                     <a href="#">Ürün Yorumları</a>
@@ -39,8 +49,8 @@
                 <li>
                     <a href="{{route('yonetim.kullanici')}}">Kullanıcılar</a>
                 </li>
-                <li >
-                    <a href="#" >Siparişler</a>
+                <li>
+                    <a href="{{route('yonetim.siparis')}}">Siparişler</a>
                 </li>
                 <h3 class="menu-title">Rapor Bilgileri</h3><!-- /.menu-title -->
                 <li class="menu-item-has-children dropdown">
@@ -55,7 +65,8 @@
                 <h3 class="menu-title">Profil</h3><!-- /.menu-title -->
                 <li>
                     <a class="nav-link" href=""><i class="fa fa-user"></i> Profilim</a>
-                    <a class="nav-link" href="{{ route('yonetim.oturumukapat') }}"><i class="fa fa-power-off"></i> Logout</a>
+                    <a class="nav-link" href="{{ route('yonetim.oturumukapat') }}"><i class="fa fa-power-off"></i>
+                        Logout</a>
                 </li>
             </ul>
         </div><!-- /.navbar-collapse -->
