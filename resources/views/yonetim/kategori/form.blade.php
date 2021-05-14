@@ -21,7 +21,7 @@
                                     <label for="ust_id">Üst Kategori</label>
                                     <select name="ust_id" id="ust_id" class="form-control">
                                         <option value="">Ana Kategori</option>
-                                        @foreach($kategoriler as $kategori1)
+                                        @foreach($seckategoriler as $kategori1)
                                             <option value="{{ $kategori1->id }}" {{ $kategori1->id == old('ust_id', $kategori->ust_id) ? 'selected' : '' }}>{{ $kategori1->kategori_adi }}</option>
                                         @endforeach
                                     </select>

@@ -39,7 +39,9 @@
                 </li>
                 <h3 class="menu-title">Ürün Ayarları</h3><!-- /.menu-title -->
                 <li>
-                    <a href="{{route('yonetim.urun')}}">Ürünler</a>
+
+                   <a href="{{route('yonetim.urun')}}">Ürünler
+                   </a>
                 </li>
                 <li>
                     <a href="#">Ürün Yorumları</a>

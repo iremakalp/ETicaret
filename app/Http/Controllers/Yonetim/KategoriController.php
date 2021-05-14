@@ -35,9 +35,9 @@ class KategoriController extends Controller
             $kategori = Kategori::find($id);
         }
 
-        $kategoriler = Kategori::all();
-
-        return view('yonetim.kategori.form', compact('kategori', 'kategoriler'));
+        $seckategoriler = Kategori::all();
+        $kategoriler=Kategori::whereRaw('ust_id is null')->get();
+        return view('yonetim.kategori.form', compact('kategori', 'seckategoriler','kategoriler'));
     }
     public function kaydet($id = 0)
     {

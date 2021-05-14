@@ -1,13 +1,13 @@
 @extends('layouts.master')
 @section('title','Oturum Aç') {{-- degistirilebilir alanı degistirmek icin--}}
 @section('content')
-    <div class="container" style="padding: 30px;">
+    <div class="container" style="padding: 30px; width: 800px;">
         @include('layouts.partials.alert')
 
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Oturum Aç</div>
+                    <div class="panel-heading" style="background-color: #1b1e21; color: whitesmoke;">Oturum Aç</div>
                     <div class="panel-body">
                         @include('layouts.partials.error')
 
@@ -40,11 +40,11 @@
 
                             <div class="form-group">
                                 <div class="col-md-8 col-md-offset-4">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="btn btn-primary"  style="background-color: #D10024; border-radius: 30px; border: none; color: whitesmoke;">
                                         Giriş yap
                                     </button>
 
-                                    <a class="btn btn-link" href="#">
+                                    <a class="btn btn-link" href="#" style="color: #D10024">
                                         Şifremi Unuttum
                                     </a>
                                 </div>

@@ -193,9 +193,13 @@
                                                     <i class="fa fa-star-o"></i>
                                                 </div>
                                             </div>
-                                            <div class="add-to-cart">
-                                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Sepete Ekle</button>
-                                            </div>
+                                            <form action="{{route('sepet.ekle')}}" method="post">
+                                                {{ csrf_field() }}
+                                                <div class="add-to-cart">
+                                                    <input type="hidden" name="id" value="{{$urun->id}}">
+                                                    <button type="submit" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Sepete Ekle</button>
+                                                </div>
+                                            </form>
                                         </div>
                                         <!-- /product1 -->
                                     @endforeach
