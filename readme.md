@@ -29,8 +29,9 @@ Bu projede Laravel Framework kullanarak bir ETicaret sitesi yapılmıştır.
 - Siparişleri güncelleyebilir, silebilir
 - Satış hakkındeki raporlara ulaşabilir
 
-# Tasarım
-## KULLANICI
+# TASARIM
+
+## Kullanıcı Sayfaları
 ### Kullanıcı Oturum
 ![oturum](https://user-images.githubusercontent.com/71495532/118359150-cfb82c00-b58a-11eb-98a5-64076327aeb9.png)
 
@@ -49,8 +50,7 @@ Bu projede Laravel Framework kullanarak bir ETicaret sitesi yapılmıştır.
 ### Siparişleri Görüntüle
 ![siparis](https://user-images.githubusercontent.com/71495532/118359207-17d74e80-b58b-11eb-8e31-13fa6fac2e07.png)
 
-## ADMİN
-
+## Admin Sayfaları
 ### Oturum Aç
 
 ![admin](https://user-images.githubusercontent.com/71495532/118359252-53721880-b58b-11eb-8e98-890eca10d9d8.png)
