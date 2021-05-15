@@ -2,7 +2,7 @@
 
 ## Laravel ile Eticaret Projesi
 
-Bu projede Laravel Framework kullanarak bir ETicaret sitesi yapılmıştır.
+Bu projede Laravel Framework kullanarak bir Eticaret sitesi geliştirilmiştir.
 
 ## Kurulum
 - Kodları bilgisayarınıza indirin veya klonlayın.
