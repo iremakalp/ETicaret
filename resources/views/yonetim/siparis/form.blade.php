@@ -5,7 +5,7 @@
         {{ csrf_field() }}
 
         <h3 class="sub-header" style="margin: 15px;">
-            Sepet {{ $entry->id > 0 ? "Düzenle" : "Ekle" }}
+            Sipariş {{ $entry->id > 0 ? "Düzenle" : "Ekle" }}
             <button type="submit" class="btn btn-primary btn-sm" style="border: none; background-color:#D10024;  height: 40px; width: 100px; border-radius: 30px;">
                 {{ $entry->id > 0 ? "Güncelle" : "Kaydet" }}
             </button>
@@ -18,7 +18,7 @@
                     <div class="col-lg-6">
                         <div class="card" style="width: 800px; margin-left: 20px;">
                             <div class="card-header">
-                                <strong>Hesap Bilgileri</strong>
+                                <strong>Sipariş Bilgileri</strong>
                             </div>
                             <div class="card-body card-block">
                                 <div class="form-group">

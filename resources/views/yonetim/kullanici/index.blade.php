@@ -54,6 +54,13 @@
                                         <td>{{ $entry->id }}</td>
                                         <td>{{ $entry->adsoyad }}</td>
                                         <td>{{ $entry->email }}</td>
+                                        <td>
+                                            @if ($entry->yonetici_mi)
+                                                <span class="label label-success">Yönetici</span>
+                                            @else
+                                                <span class="label label-warning">Müşteri</span>
+                                            @endif
+                                        </td>
                                         <td>{{ $entry->olusturma_tarihi }}</td>
                                         <td>
                                             <a href="{{ route('yonetim.kullanici.duzenle', $entry->id) }}"
@@ -93,20 +100,6 @@
             }
         });
 
-        $('.urun-adet-artir, .urun-adet-azalt').on('click', function () {
-
-            var id = $(this).attr('data-id');
-            var myAdet = $(this).attr('data-adet');
-
-            $.ajax({
-                type: 'PATCH',
-                url: '{{url('sepet/guncelle')}}/' + id,
-                data: {adet: myAdet},
-                success: function () {
-                    window.location.href = '{{route('sepet')}}';
-                }
-            });
-        });
     </script>
     <script src="/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="/vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>

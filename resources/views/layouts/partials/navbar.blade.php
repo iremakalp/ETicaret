@@ -7,7 +7,7 @@
             display: none;
         }
         .menu-toggle {
-            margin-right: 250px;
+            margin-right: 150px;
         }
     }
     @media only screen and (max-width: 370px) {
@@ -22,12 +22,14 @@
     <div id="top-header">
         <div class="container">
             <ul class="header-links pull-left">
-                <li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
-                <li><a href="mailto:iremklp@gmail.com.tr"><i class="fa fa-envelope-o"></i> info@electro.com.tr</a></li>
-                <li><a href="https://www.google.com/maps/d/embed?mid=1PyfL2yockyzgneQV0Cbx3NJshXs"><i
-                            class="fa fa-map-marker"></i>İzmit/Kocaeli</a></li>
+                <li style="color: whitesmoke;"><i class="fa fa-phone"></i> +021-95-51-84</li>
+                <li><a href="mailto:iremklp@gmail.com.tr"><i class="fa fa-envelope-o"></i> info@electrotech.com.tr</a></li>
+                <li><a href="https://www.google.com/maps/place/Kartepe,+Kocaeli/@40.7453448,29.9976738,13z/data=!3m1!4b1!4m5!3m4!1s0x14cb509aa64c1233:0x72649c34bfcb0a2e!8m2!3d40.753369!4d30.023216"><i
+                            class="fa fa-map-marker"></i>Kartepe/Kocaeli</a></li>
+            <li style="float: right; margin-left: 600px;">
+                <!-- weather widget start --><a target="_blank" href="https://bookeder.com/weather/kartepe-52663"><img src="https://w.bookcdn.com/weather/picture/21_52663_1_21_1E1F29_250_1E1F29_ffffff_ffffff_1_2071c9_ffffff_0_6.png?scode=124&domid=765&anc_id=65603"  alt="booked.net"/></a><!-- weather widget end -->
+            </li>
             </ul>
-
         </div>
     </div>
     <!-- /TOP HEADER -->

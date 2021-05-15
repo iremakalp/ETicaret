@@ -10,7 +10,8 @@
 </head>
 <body>
 <div class="container">
-    <form class="form-signin" style="background-color: #1E1F29; color: whitesmoke" action="{{ route('yonetim.oturumac') }}" method="post">
+    <form class="form-signin" style="background-color: #1E1F29; color: whitesmoke"
+          action="{{ route('yonetim.oturumac') }}" method="post">
         {{ csrf_field() }}
         <img src="/img/logo.png" class="logo">
         <strong style="text-align: center; margin: 100px;">Admin Giriş</strong>
@@ -18,7 +19,8 @@
         @include('layouts.partials.error')
 
         <label for="email" class="sr-only">Email</label>
-        <input type="email" id="email" name="email" class="form-control" placeholder="Email" required autofocus style="margin-bottom: 15px;">
+        <input type="email" id="email" name="email" class="form-control" placeholder="Email" required autofocus
+               style="margin-bottom: 15px;">
         <label for="sifre" class="sr-only">Şifre</label>
         <input type="password" id="sifre" name="sifre" class="form-control" placeholder="Şifre" required>
         <div class="checkbox">
@@ -26,7 +28,8 @@
                 <input type="checkbox" name="benihatirla" value="1" checked> Beni hatırla
             </label>
         </div>
-        <button class="primary-btn cta-btn" style="width:300px; text-transform: capitalize;" type="submit">Giriş Yap</button>
+        <button class="primary-btn cta-btn" style="width:300px; text-transform: capitalize;" type="submit">Giriş Yap
+        </button>
         <div class="links">
             <a href="{{ route('anasayfa') }}" style="color: whitesmoke">&larr; Siteye dön</a>
         </div>

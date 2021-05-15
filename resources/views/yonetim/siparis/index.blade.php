@@ -5,12 +5,12 @@
         <form method="post" action="{{ route('yonetim.siparis') }}" class="form-inline">
             {{ csrf_field() }}
             <div class="form-group">
-                <label for="aranan">Ara</label>
+                <label for="aranan" style="margin-right: 5px;">Ara</label>
                 <input type="text" class="form-control form-control-sm" name="aranan" id="aranan"
                        placeholder="Sipariş Ara..." value="{{ old('aranan') }}">
             </div>
-            <button type="submit" class="btn btn-primary">Ara</button>
-            <a href="{{ route('yonetim.siparis') }}" class="btn btn-primary">Temizle</a>
+            <button type="submit" class="btn btn-primary" style="background-color:#0d152a; border: none; margin-left: 5px;margin-right: 5px; ">Ara</button>
+            <a href="{{ route('yonetim.siparis') }}" class="btn btn-primary" style="background-color:#0d152a; border: none; margin-left: 5px;margin-right: 5px; ">Temizle</a>
         </form>
     </div>
     @include('layouts.partials.alert')

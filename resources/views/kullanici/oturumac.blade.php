@@ -1,6 +1,16 @@
 @extends('layouts.master')
 @section('title','Oturum Aç') {{-- degistirilebilir alanı degistirmek icin--}}
 @section('content')
+    <style>
+        @media only screen and (max-width: 370px) {
+            .row{
+                width: 300px;
+            }
+            .oturum{
+                width: 200px;
+            }
+        }
+    </style>
     <div class="container" style="padding: 30px; width: 800px;">
         @include('layouts.partials.alert')
 
@@ -8,7 +18,7 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading" style="background-color: #1b1e21; color: whitesmoke;">Oturum Aç</div>
-                    <div class="panel-body">
+                    <div class="panel-body oturum">
                         @include('layouts.partials.error')
 
                         <form class="form-horizontal" role="form" method="POST" action="{{ route('kullanici.oturumac') }}">
@@ -43,10 +53,6 @@
                                     <button type="submit" class="btn btn-primary"  style="background-color: #D10024; border-radius: 30px; border: none; color: whitesmoke;">
                                         Giriş yap
                                     </button>
-
-                                    <a class="btn btn-link" href="#" style="color: #D10024">
-                                        Şifremi Unuttum
-                                    </a>
                                 </div>
                             </div>
                         </form>

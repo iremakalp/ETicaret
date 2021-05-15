@@ -1,11 +1,11 @@
 @extends('layouts.master')
 @section('title','Kaydol') {{-- degistirilebilir alanı degistirmek icin--}}
 @section('content')
-    <div class="container" style="padding: 30px;">
+    <div class="container" style="padding: 30px; width: 900px;">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Kaydol</div>
+                    <div class="panel-heading" style="background-color: #1b1e21; color: whitesmoke;">Kaydol</div>
                     <div class="panel-body">
                         @include('layouts.partials.error')
                         <form class="form-horizontal" role="form" method="POST" action="{{ route('kullanici.kaydol') }}">
@@ -40,7 +40,7 @@
 
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="btn btn-primary"  style="background-color: #D10024; float: right; border-radius: 30px; border: none; color: whitesmoke;">
                                         Kaydol
                                     </button>
                                 </div>
