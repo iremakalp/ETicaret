@@ -36,7 +36,7 @@ Bu projede Laravel Framework kullanarak bir ETicaret sitesi yapılmıştır.
 ![oturum](https://user-images.githubusercontent.com/71495532/118359150-cfb82c00-b58a-11eb-98a5-64076327aeb9.png)
 
 ### Anasayfa
-![anasayfa](https://user-images.githubusercontent.com/71495532/118359168-ebbbcd80-b58a-11eb-90bd-08fa7bb52ca2.png)
+![anasayfa](https://user-images.githubusercontent.com/71495532/118359505-6fc28500-b58c-11eb-855b-961d54cf510f.png)
 
 ### Sepet
 ![sepet](https://user-images.githubusercontent.com/71495532/118359183-fd04da00-b58a-11eb-8208-292ef3f3d8be.png)
