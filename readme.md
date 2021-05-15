@@ -48,6 +48,7 @@ Bu projede Laravel Framework kullanarak bir Eticaret sitesi geliştirilmiştir.
 ![urun](https://user-images.githubusercontent.com/71495532/118359288-713f7d80-b58b-11eb-9a4d-0edb807544cc.png)
 ![urun_ekle](https://user-images.githubusercontent.com/71495532/118359298-7997b880-b58b-11eb-9dd0-dc090b512119.png)
 ![siparisler](https://user-images.githubusercontent.com/71495532/118359411-f034b600-b58b-11eb-9872-6a58fa0c3942.png)
-![siparis düzenle](https://user-images.githubusercontent.com/71495532/118359728-86b5a700-b58d-11eb-885e-6f37e7417706.png)
+![siparis düzenle](https://user-images.githubusercontent.com/71495532/118359770-b664af00-b58d-11eb-8801-fa024a77b8a5.png)
+
 
 
