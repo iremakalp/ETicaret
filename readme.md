@@ -1,65 +1,75 @@
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+## Laravel ile Eticaret Projesi
 
-## About Laravel
+Bu projede Laravel Framework kullanarak bir Eticaret sitesi geliştirilmiştir.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+## Kurulum
+- Kodları bilgisayarınıza indirin veya klonlayın.
+- Konsol ekranında `composer install` komutunu çalıştırın.
+- .env.example dosyasının adını .env olarak değiştirin.
+- .env dosyası içerisinde yer alan `DB_` parametrelerini kendinize göre ayarlayın.
+- Konsol ekranında `php artisan key:generate` komutunu çalıştırın.
+- Projeyi çalıştırmak için `php artisan serve` komutunu çalıştırın.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Yapılabilecek İşlemler
+### User Bölümü
+- Kayıt olabilir ya da oturum açabilir
+- Profil bilgilerini güncelleyebilir ya da hesabını silebilir
+- Kategorilere ait ürünleri görüntüleyebilir
+- Ürün detaylarına ulaşabilir
+- Ürünü sepete ekleyebilir,sepetten ürün silebilir, sepeti boşaltabilir, ödeme yapabilir
+- Oluşturduğu sipariş durumunu kontrol edebilir
+- Ürüne yorum ekleyebilir
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications.
+### Admin Bölümü
+- Kullanıcı bilgilerini güncelleyebilir, silebilir, yeni kayıt oluşturabilir
+- Kategorileri güncelleyebilir, silebilir, yeni kayıt oluşturabilir
+- Ürünleri güncelleyebilir, silebilir, yeni kayıt oluşturabilir
+- Siparişleri güncelleyebilir, silebilir
+- Satış hakkındeki raporlara ulaşabilir
 
-## Learning Laravel
+# TASARIM
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of any modern web application framework, making it a breeze to get started learning the framework.
+## Kullanıcı Sayfaları
+### Kullanıcı Oturum
+![oturum](https://user-images.githubusercontent.com/71495532/118359150-cfb82c00-b58a-11eb-98a5-64076327aeb9.png)
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 1100 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
+### Anasayfa
+![anasayfa](https://user-images.githubusercontent.com/71495532/118359505-6fc28500-b58c-11eb-855b-961d54cf510f.png)
 
-## Laravel Sponsors
+### Sepet
+![sepet](https://user-images.githubusercontent.com/71495532/118359183-fd04da00-b58a-11eb-8208-292ef3f3d8be.png)
 
-We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell):
+### Ödeme
+![odeme](https://user-images.githubusercontent.com/71495532/118359189-04c47e80-b58b-11eb-83af-7938e055bf9e.png)
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
+### Profil Düzenle
+![profil](https://user-images.githubusercontent.com/71495532/118359198-0ee67d00-b58b-11eb-99a0-202d234f805a.png)
 
-## Contributing
+### Siparişleri Görüntüle
+![siparis](https://user-images.githubusercontent.com/71495532/118359207-17d74e80-b58b-11eb-8e31-13fa6fac2e07.png)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Admin Sayfaları
+### Oturum Aç
 
-## Security Vulnerabilities
+![admin](https://user-images.githubusercontent.com/71495532/118359252-53721880-b58b-11eb-8e98-890eca10d9d8.png)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Anasayfa
+![admin_anasayfa](https://user-images.githubusercontent.com/71495532/118359258-5a992680-b58b-11eb-9644-6ef65a81152d.png)
 
-## License
+### Kullanıcılar
+![kullanici](https://user-images.githubusercontent.com/71495532/118359267-62f16180-b58b-11eb-8fc4-218135f9f3db.png)
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Kategoriler
+![kategori](https://user-images.githubusercontent.com/71495532/118359278-6a186f80-b58b-11eb-8341-97fe865a4c54.png)
+![kategori_ekle](https://user-images.githubusercontent.com/71495532/118359295-743a6e00-b58b-11eb-8643-7a3e8a90285f.png)
+
+### Ürünler
+![urun](https://user-images.githubusercontent.com/71495532/118359288-713f7d80-b58b-11eb-9a4d-0edb807544cc.png)
+![urun_ekle](https://user-images.githubusercontent.com/71495532/118359298-7997b880-b58b-11eb-9dd0-dc090b512119.png)
+
+### Siparişler
+![siparisler](https://user-images.githubusercontent.com/71495532/118359411-f034b600-b58b-11eb-9872-6a58fa0c3942.png)
+![siparis düzenle](https://user-images.githubusercontent.com/71495532/118359770-b664af00-b58d-11eb-8801-fa024a77b8a5.png)
+
