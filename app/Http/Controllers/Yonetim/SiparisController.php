@@ -16,6 +16,7 @@ class SiparisController extends Controller
             $list = Siparis::with('sepet.kullanici') //siparisle beraber sepet ve kullanici bilgisinide ceker
                 ->where('adsoyad', 'like', "%$aranan%")
                 ->orWhere('id', $aranan)
+                ->orWhere('durum','like', "%$aranan%")
                 ->paginate(8)
                 ->appends('aranan', $aranan);
         } else {

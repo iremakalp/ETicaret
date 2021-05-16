@@ -22,8 +22,13 @@ class Urun extends Model
         return $this->belongsToMany('App\Models\Kategori','kategori_urun');
 
     }
+    public function yorumlar()
+    {
+        return $this->belongsToMany('App\Models\UrunYorum', 'urun_yorum');
+    }
     public function detay()
     {
         return $this->hasOne('App\Models\UrunDetay')->withDefault();
     }
+
 }

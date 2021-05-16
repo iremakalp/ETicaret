@@ -42,7 +42,10 @@ Route::group(['prefix' => 'yonetim', 'namespace' => 'Yonetim'], function () {
             Route::post('/kaydet/{id?}', 'UrunController@kaydet')->name('yonetim.urun.kaydet');
             Route::get('/sil/{id}', 'UrunController@sil')->name('yonetim.urun.sil');
         });
-
+        Route::group(['prefix' => 'yorum'], function () {
+            Route::match(['get', 'post'], '/', 'YorumController@index')->name('yonetim.yorum');
+            Route::get('/sil/{id}', 'YorumController@sil')->name('yonetim.yorum.sil');
+        });
         Route::group(['prefix' => 'siparis'], function () {
             Route::match(['get', 'post'], '/', 'SiparisController@index')->name('yonetim.siparis');
             Route::get('/yeni', 'SiparisController@form')->name('yonetim.siparis.yeni');
@@ -61,6 +64,7 @@ Route::get('/','AnasayfaController@index')->name('anasayfa');
 Route::get('/kategori/{slug_kategoriadi}','KategoriController@index')->name('kategori');
 
 Route::get('/urun/{slug_urunadi}','UrunController@index')->name('urun');
+Route::post('/urun/{slug_urunadi}', 'UrunController@yorumYap')->name('urun.yorumyap');
 
 Route::post('/ara','UrunController@ara')->name('urun_ara');
 Route::get('/ara','UrunController@ara')->name('urun_ara');
@@ -77,6 +81,7 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 Route::group(['prefix' => 'kullanici'], function () {
+
     Route::get('/oturumac', 'KullaniciController@giris_form')->name('kullanici.oturumac');
     Route::post('/oturumac', 'KullaniciController@giris');
     Route::get('/kaydol', 'KullaniciController@kaydol_form')->name('kullanici.kaydol');

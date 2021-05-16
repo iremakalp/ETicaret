@@ -65,8 +65,8 @@ class KullaniciController extends Controller
         if ($id > 0) {
             $entry = Kullanici::find($id);
         }
-        $kategoriler=Kategori::whereRaw('ust_id is null')->get();
 
+        $kategoriler=Kategori::whereRaw('ust_id is null')->get();
         return view('yonetim.kullanici.form', compact('entry','kategoriler'));
     }
 

@@ -1,16 +1,16 @@
 @extends('layouts.master')
 @section('title', 'Bilgilerim')
-@section('content')
+@section('head')
     <style>
         @media only screen and (max-width: 990px) {
-          .iletisim{
-              margin-left: 40px;
-              margin-top: 40px;
-          }
+            .iletisim{
+                margin-left: 40px;
+                margin-top: 40px;
+            }
         }
         @media only screen and (max-width: 370px) {
             .hesap{
-               width: 40%;
+                width: 40%;
                 height: 40%;
             }
             .form-group{
@@ -19,6 +19,23 @@
             }
         }
     </style>
+@endsection
+@section('content')
+    <!-- BREADCRUMB -->
+    <div id="breadcrumb" class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-12">
+
+                </div>
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /BREADCRUMB -->
     <form method="post" action="{{route('kullanici.kaydet', $kullanici->id)}}">
         {{ csrf_field() }}
     <h3 class="sub-header" style="margin-top: 30px; margin-left: 50px; text-transform: uppercase; color: #0d152a;">
@@ -95,20 +112,6 @@
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
-        });
-        $('.urun-adet-artir, .urun-adet-azalt').on('click', function () {
-
-            var id = $(this).attr('data-id');
-            var myAdet = $(this).attr('data-adet');
-
-            $.ajax({
-                type: 'PATCH',
-                url: '{{url('sepet/guncelle')}}/' + id,
-                data: {adet: myAdet},
-                success: function () {
-                    window.location.href = '{{route('sepet')}}';
-                }
-            });
         });
     </script>
 @endsection

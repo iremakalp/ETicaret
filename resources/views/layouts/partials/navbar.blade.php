@@ -15,7 +15,26 @@
             width: 450px;
         }
     }
+    @media only screen and (min-width: 990px) {
+        #gizle2 {
+            display: none;
+        }
+        #search-menu2 {
+            display: none;
+        }
+    }
+    @media only screen and (max-width: 370px) {
+        .hesap{
+            width: 40%;
+            height: 40%;
+        }
+        .form-group{
+            width: 50%;
+
+        }
+    }
 </style>
+
 <!-- HEADER -->
 <header>
     <!-- TOP HEADER -->
@@ -129,4 +148,64 @@
     <!-- /MAIN HEADER -->
 </header>
 <!-- /HEADER -->
+<!-- responsive-nav -->
+<div id="responsive-nav">
+    <!-- NAV -->
+    <ul class="main-nav nav navbar-nav">
+        <li>
+            <div class="col-md-6">
+                <div class="header-search" id="gizle2">
+                    <form action="{{route('urun_ara')}}" method="post">
+                        {{csrf_field()}}
+                        <input class="input" name="aranan" placeholder="Ara" style="width: 100px;">
+                        <button class="search-btn">Ara</button>
+                    </form>
+                </div>
+            </div>
+        </li>
+        <li class="active"><a href="#">Anasayfa</a></li>
+        @foreach($kategoriler as $kategori)
+            <li>
+                <a href="{{route('kategori',$kategori->slug)}}">
+                    {{$kategori->kategori_adi}}
+                </a>
+            </li>
+        @endforeach
+        <li>
+            <a href="{{ route('sepet') }}" id="gizle2"><i class="fa fa-shopping-cart"></i> Sepet <span
+                    class="qty">{{ Cart::count() }}</span></a>
+        </li>
+        @guest()
+            <li class="dropdown" style="text-color: whitesmoke;" id="gizle2">
+                <a href="#" class="dropdown-toggle"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Giriş  <i class="fa fa-user-o"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a style="color: whitesmoke;" href="{{ route('kullanici.oturumac') }}">Oturum Aç</a></li>
+
+                    <li><a style="color: whitesmoke;" href="{{ route('kullanici.kaydol') }}">Kaydol</a>
+                    </li>
+                </ul>
+            </li>
+        @endguest
+        @auth()
+            <li class="dropdown"id="gizle2">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->adsoyad }} <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li ><a style="color: whitesmoke;" href="{{route('kullanici.duzenle', Auth::user()->id) }}">Profil</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a style="color: whitesmoke;" href="{{ route('siparisler') }}">Siparişlerim</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li>
+                        <a style="color: whitesmoke;" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit()">Çıkış</a>
+                        <form id="logout-form" action="{{route('kullanici.oturumukapat')}}" method="post" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                    </li>
+                </ul>
+            </li>
+        @endauth
+
+    </ul>
+    <!-- /NAV -->
+</div>
+<!-- /responsive-nav -->
 

@@ -8,14 +8,7 @@
             <!-- row -->
             <div class="row">
                 <div class="col-md-12">
-                    <ul class="breadcrumb-tree">
-                        <li><a href="{{route('anasayfa')}}">Anasayfa</a></li>
-                        @foreach($urun->kategoriler as $kategori)
-                            <li><a href="{{route('kategori',$kategori->slug)}}">{{$kategori ->kategori_adi}}</a></li>
-                        @endforeach
-                        <li class="active"><a href="{{route('urun',$urun->slug)}}">{{$urun->urun_adi}}</a></li>
 
-                    </ul>
                 </div>
             </div>
             <!-- /row -->
@@ -72,7 +65,9 @@
                                 {{ csrf_field() }}
                                 <div class="add-to-cart">
                                     <input type="hidden" name="id" value="{{$urun->id}}">
-                                    <button type="submit" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Sepete Ekle</button>
+                                    <button type="submit" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Sepete
+                                        Ekle
+                                    </button>
                                 </div>
                             </form>
                         </div>
@@ -99,48 +94,47 @@
 
                         <!-- product tab content -->
                         <div class="tab-content">
-                            <!-- tab2  -->
-                            <div id="tab2" class="tab-pane fade in">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /tab2  -->
-
                             <!-- tab3  -->
                             <div id="tab3" class="tab-pane fade in">
                                 <div class="row">
                                     <!-- Reviews -->
                                     <div class="col-md-6">
-                                        <div id="reviews">
-                                            <ul class="reviews">
-                                                <li>
-                                                    <div class="review-heading">
-                                                        <h5 class="name">John</h5>
-                                                        <p class="date">27 DEC 2018, 8:0 PM</p>
-                                                    </div>
-                                                    <div class="review-body">
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
+                                        @if(count($yorumlar)==0)
+                                            <div class="review-body">
+                                                <p>Bu ürüne henüz yorum yapılmadı</p>
+                                            </div>
+                                        @endif
+                                      @foreach($yorumlar as $yorum)
+                                            <div id="reviews">
+                                                <ul class="reviews">
+                                                    <li>
+                                                        <div class="review-heading">
+                                                            <h5 class="name">{{$yorum->adsoyad}}</h5>
+                                                            <p class="date">{{$yorum->olusturma_tarihi}}</p>
+                                                        </div>
+                                                        <div class="review-body">
+                                                            <p>{{$yorum->yorum}}</p>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        @endforeach
+                                          {{ $yorumlar->links() }}
                                     </div>
                                     <!-- /Reviews -->
-
                                     <!-- Review Form -->
                                     <div class="col-md-3">
                                         <div id="review-form">
-                                            <form class="review-form">
-                                                <input class="input" type="text" placeholder="Ad">
-                                                <input class="input" type="email" placeholder="Email">
-                                                <textarea class="input" placeholder="Yorum"></textarea>
+                                            <form class="review-form" method="post" action="{{route('urun.yorumyap',$urun->slug)}}" onscroll="yes">
+                                                {{ csrf_field() }}
+                                                <input id="adsoyad" class="input" name="adsoyad" type="text" placeholder="Ad">
+                                                <input class="input" id="email" type="email" name="email" placeholder="Email">
+                                                <textarea class="input" id="yorum" name="yorum" placeholder="Yorum"></textarea>
                                                 <button class="primary-btn">Yorum Yap</button>
                                             </form>
                                         </div>
                                     </div>
+
                                     <!-- /Review Form -->
                                 </div>
                             </div>

@@ -56,6 +56,9 @@
                                 </div>
                             </div>
                         </form>
+                        <div class="links">
+                            <a href="{{ route('yonetim.oturumac') }}" style="color:#D10024; ">Yönetici Girişi</a>
+                        </div>
                     </div>
                 </div>
             </div>

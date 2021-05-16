@@ -2,16 +2,13 @@
 @section('title',$kategori->kategori_adi) {{-- degistirilebilir alanı degistirmek icin--}}
 @section('content')
     <!-- BREADCRUMB -->
-    <div id="breadcrumb" class="section">
+    <div id="breadcrumb" class="section" style="margin-top: 20px; margin-left: -80px;">
         <!-- container -->
         <div class="container">
             <!-- row -->
             <div class="row">
                 <div class="col-md-12">
-                    <ul class="breadcrumb-tree">
-                        <li><a href="{{route('anasayfa')}}">Anasayfa</a></li>
-                        <li><a href="#">{{$kategori->kategori_adi}}</a></li>
-                    </ul>
+
                 </div>
             </div>
             <!-- /row -->

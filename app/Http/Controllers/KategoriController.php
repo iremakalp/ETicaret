@@ -30,6 +30,8 @@ class KategoriController extends Controller
                 ->orderByDesc('guncelleme_tarihi')
                 ->simplePaginate(3);
         }
-        return view('kategori',compact('kategori','alt_kategoriler','urunler','ust_kategori'));
+        $kategoriler=Kategori::whereRaw('ust_id is null')->get();
+
+        return view('kategori',compact('kategori','alt_kategoriler','urunler','ust_kategori','kategoriler'));
     }
 }

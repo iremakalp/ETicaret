@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 use App\Models\Siparis;
 use Cart;
@@ -22,8 +23,9 @@ class OdemeController extends Controller
         }
 
         $kullanici_detay = auth()->user()->detay;
+        $kategoriler=Kategori::whereRaw('ust_id is null')->get();
 
-        return view('odeme', compact('kullanici_detay'));
+        return view('odeme', compact('kullanici_detay','kategoriler'));
     }
     public function odemeyap()
     {

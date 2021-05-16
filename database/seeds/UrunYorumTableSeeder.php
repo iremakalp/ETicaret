@@ -1,7 +1,5 @@
 <?php
 
-use App\Models\Urun;
-use App\Models\UrunDetay;
 use App\Models\UrunYorum;
 use Illuminate\Database\Seeder;
 
@@ -17,11 +15,11 @@ class UrunYorumTableSeeder extends Seeder
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         $faker = Faker\Factory::create('tr_TR');
 
-        for ($i = 0; $i < 15; $i++) {
+        for ($i = 0; $i < 30; $i++) {
             $yorum = UrunYorum::create([
                 'urun_id'=>rand(1,20),
                 'adsoyad'     => $faker->name,
-                'yorum' => $faker->paragraph(20),
+                'yorum' => $faker->paragraph(2),
                 'email'       => $faker->unique()->safeEmail,
                 'olusturma_tarihi'=>$faker->date($format = 'Y-m-d', $max = 'now')
             ]);

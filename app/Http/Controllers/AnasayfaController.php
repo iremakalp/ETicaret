@@ -10,6 +10,7 @@ class AnasayfaController extends Controller
     public function index()
     {
         $kategoriler=Kategori::whereRaw('ust_id is null')->get();
+
         $urunler_one_cikan = Urun::select('urun.*')
             ->join('urun_detay', 'urun_detay.urun_id', 'urun.id')
             ->where('urun_detay.goster_one_cikan', 1)

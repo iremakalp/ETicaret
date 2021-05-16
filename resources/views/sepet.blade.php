@@ -1,6 +1,21 @@
 @extends('layouts.master')
 @section('title','Sepet') {{-- degistirilebilir alanı degistirmek icin--}}
 @section('content')
+    <!-- BREADCRUMB -->
+    <div id="breadcrumb" class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-12">
+
+                </div>
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /BREADCRUMB -->
     <div class="section">
         <!-- container -->
         <div class="container">

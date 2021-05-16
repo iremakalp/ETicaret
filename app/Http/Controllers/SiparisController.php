@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kategori;
 use App\Models\Siparis;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,9 @@ class SiparisController extends Controller
             ->orderByDesc('olusturma_tarihi')
             ->get();
 
-        return view('siparisler', compact('siparisler'));
+        $kategoriler=Kategori::whereRaw('ust_id is null')->get();
+
+        return view('siparisler', compact('siparisler','kategoriler'));
     }
     public function detay($id)
     {
@@ -27,6 +30,8 @@ class SiparisController extends Controller
             ->where('siparis.id', $id)
             ->firstOrFail();
 
-        return view('siparis', compact('siparis'));
+        $kategoriler=Kategori::whereRaw('ust_id is null')->get();
+
+        return view('siparis', compact('siparis','kategoriler'));
     }
 }

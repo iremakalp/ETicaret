@@ -24,28 +24,6 @@
         <div class="container">
             <!-- row -->
             <div class="row">
-                <!-- ASIDE -->
-                <div id="aside" class="col-md-3">
-                    <!-- aside Widget -->
-                    <div class="aside">
-                        <h3 class="aside-title">Fiyat</h3>
-                        <div class="price-filter">
-                            <div id="price-slider"></div>
-                            <div class="input-number price-min">
-                                <input id="price-min" type="number">
-                                <span class="qty-up">+</span>
-                                <span class="qty-down">-</span>
-                            </div>
-                            <span>-</span>
-                            <div class="input-number price-max">
-                                <input id="price-max" type="number">
-                                <span class="qty-up">+</span>
-                                <span class="qty-down">-</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /ASIDE -->
                 <!-- STORE -->
                 <div id="store" class="col-md-9">
                     <!-- store products -->

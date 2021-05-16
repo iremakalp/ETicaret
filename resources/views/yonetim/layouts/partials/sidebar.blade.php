@@ -44,7 +44,7 @@
                    </a>
                 </li>
                 <li>
-                    <a href="#">Ürün Yorumları</a>
+                    <a href="{{route('yonetim.yorum')}}">Ürün Yorumları</a>
                 </li>
 
                 <h3 class="menu-title">Kullanıcı-Sipariş Ayarları</h3><!-- /.menu-title -->
@@ -54,19 +54,7 @@
                 <li>
                     <a href="{{route('yonetim.siparis')}}">Siparişler</a>
                 </li>
-                <h3 class="menu-title">Rapor Bilgileri</h3><!-- /.menu-title -->
-                <li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                       aria-expanded="false">Raporlar</a>
-                    <ul class="sub-menu children dropdown-menu">
-                        <li><a href="page-login.html">Çok Satan Ürünler</a></li>
-                        <li><a href="page-register.html">Günlere Göre
-                                Satışlar</a></li>
-                    </ul>
-                </li>
-                <h3 class="menu-title">Profil</h3><!-- /.menu-title -->
                 <li>
-                    <a class="nav-link" href=""><i class="fa fa-user"></i> Profilim</a>
                     <a class="nav-link" href="{{ route('yonetim.oturumukapat') }}"><i class="fa fa-power-off"></i>
                         Logout</a>
                 </li>

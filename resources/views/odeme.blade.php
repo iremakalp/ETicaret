@@ -1,6 +1,7 @@
 @extends('layouts.master')
 @section('title','Ödeme') {{-- degistirilebilir alanı degistirmek icin--}}
 @section('content')
+
     <div class="section">
         <!-- container -->
         <div class="container">

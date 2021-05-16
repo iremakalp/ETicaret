@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kategori;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use App\Models\Sepet;
@@ -13,7 +14,9 @@ class SepetController extends Controller
 {
     public function index()
     {
-        return view('sepet');
+        $kategoriler=Kategori::whereRaw('ust_id is null')->get();
+
+        return view('sepet',compact('kategoriler'));
     }
 
     public function ekle()

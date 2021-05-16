@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\KullaniciKayitMail;
+use App\Models\Kategori;
 use App\Models\Kullanici;
 use App\Models\KullaniciDetay;
 use App\Models\Sepet;
@@ -19,9 +20,10 @@ class KullaniciController extends Controller
 {
     public function giris_form()
     {
-        return view('kullanici.oturumac');
-    }
+        $kategoriler=Kategori::whereRaw('ust_id is null')->get();
 
+        return view('kullanici.oturumac',compact('kategoriler'));
+    }
     public function giris()
     {
         $this->validate(request(), [
@@ -64,7 +66,9 @@ class KullaniciController extends Controller
 
     public function kaydol_form()
     {
-        return view('kullanici.kaydol');
+        $kategoriler=Kategori::whereRaw('ust_id is null')->get();
+
+        return view('kullanici.kaydol',compact('kategoriler'));
     }
 
     public function kaydol()
@@ -119,8 +123,9 @@ class KullaniciController extends Controller
         if ($id > 0) {
             $kullanici = Kullanici::find($id);
         }
+        $kategoriler=Kategori::whereRaw('ust_id is null')->get();
 
-        return view('kullanici.form', compact('kullanici'));
+        return view('kullanici.form', compact('kullanici','kategoriler'));
     }
     public function kaydet($id = 0)
     {
