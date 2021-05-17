@@ -1,4 +1,5 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+
+<p align="left"><img src="https://github.com/iremakalp/ETicaret/blob/master/Ads%C4%B1z%20tasar%C4%B1m.png"></p>
 
 ## Laravel ile Eticaret Projesi
 
