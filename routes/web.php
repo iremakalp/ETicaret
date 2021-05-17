@@ -69,15 +69,21 @@ Route::post('/urun/{slug_urunadi}', 'UrunController@yorumYap')->name('urun.yorum
 Route::post('/ara','UrunController@ara')->name('urun_ara');
 Route::get('/ara','UrunController@ara')->name('urun_ara');
 
-Route::get('/odeme', 'OdemeController@index')->name('odeme');
-Route::post('/odeme', 'OdemeController@odemeyap')->name('odemeyap');
-
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/siparisler', 'SiparisController@index')->name('siparisler');
     Route::get('/siparisler/{id}', 'SiparisController@detay')->name('siparis');
     Route::get('/duzenle/{id}', 'KullaniciController@form')->name('kullanici.duzenle');
     Route::post('/kaydet/{id?}', 'KullaniciController@kaydet')->name('kullanici.kaydet');
     Route::get('/sil/{id}', 'KullaniciController@sil')->name('kullanici.sil');
+    Route::get('/odeme', 'OdemeController@index')->name('odeme');
+    Route::post('/odeme', 'OdemeController@odemeyap')->name('odemeyap');
+    Route::group(['prefix' => 'sepet'], function () {
+        Route::get('/', 'SepetController@index')->name('sepet');
+        Route::post('/ekle', 'SepetController@ekle')->name('sepet.ekle');
+        Route::delete('/kaldir/{rowid}', 'SepetController@kaldir')->name('sepet.kaldir');
+        Route::delete('/bosalt', 'SepetController@bosalt')->name('sepet.bosalt');
+        Route::patch('/guncelle/{rowid}', 'SepetController@guncelle')->name('sepet.guncelle');
+    });
 });
 
 Route::group(['prefix' => 'kullanici'], function () {
@@ -90,13 +96,7 @@ Route::group(['prefix' => 'kullanici'], function () {
     Route::get('/aktiflestir/{anahtar}', 'KullaniciController@aktiflestir')->name('aktiflestir');
     Route::post('/oturumukapat', 'KullaniciController@oturumukapat')->name('kullanici.oturumukapat');
 });
-Route::group(['prefix' => 'sepet'], function () {
-    Route::get('/', 'SepetController@index')->name('sepet');
-    Route::post('/ekle', 'SepetController@ekle')->name('sepet.ekle');
-    Route::delete('/kaldir/{rowid}', 'SepetController@kaldir')->name('sepet.kaldir');
-    Route::delete('/bosalt', 'SepetController@bosalt')->name('sepet.bosalt');
-    Route::patch('/guncelle/{rowid}', 'SepetController@guncelle')->name('sepet.guncelle');
-});
+
 Route::get('/test/mail', function (){
 
     $kullanici = App\Models\Kullanici::find(2);

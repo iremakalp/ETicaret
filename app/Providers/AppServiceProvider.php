@@ -32,7 +32,7 @@ class AppServiceProvider extends ServiceProvider
         View::share('istatistikler', $istatistikler); // tum viewlerde kullanilabilir*/
 
         View::composer(['yonetim.*'], function($view) { //hangi view klasorunde gorunmesini istiyorsak onlar yazilir
-            $bitisZamani = now()->addMinutes(10);
+            $bitisZamani = now()->addMinutes(60000);
             $istatistikler = Cache::remember('istatistikler', $bitisZamani, function () {
                 return [
                     'bekleyen_siparis' => Siparis::where('durum', 'Siparişiniz alındı')->count(),
