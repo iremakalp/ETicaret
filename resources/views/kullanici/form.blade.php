@@ -80,7 +80,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="telefon" class=" form-control-label">Telefon</label>
-                                        <input type="text" class="form-control" id="telefon" name="telefon" placeholder="Telefon" value="{{ old('telefon', $kullanici->detay->telefon) }}">
+                                        <input  type="text" class="form-control telefon" id="telefon" name="telefon" placeholder="Telefon" value="{{ old('telefon', $kullanici->detay->telefon) }}">
                                     </div>
                                 </div>
                             </div>
@@ -113,5 +113,9 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
+        $('.telefon').mask('(000) 000-00-00', {placeholder: "(___) ___-__-__"});
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.js"></script>
 @endsection

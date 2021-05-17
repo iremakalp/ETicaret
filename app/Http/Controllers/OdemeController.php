@@ -11,22 +11,23 @@ class OdemeController extends Controller
 {
     public function index()
     {
+        $currentYear =date('Y');
         if (!auth()->check()) { //hesap acik mi diye kontrol eder
             return redirect()->route('kullanici.oturumac')
                 ->with('mesaj_tur', 'info')
                 ->with('mesaj', 'Ödeme işlemi için oturum açmanız veye kullanıcı kaydı yapmanız gerekmektedir.');
-        }
-        else if (count(Cart::content()) == 0) {
+        } else if (count(Cart::content()) == 0) {
             return redirect()->route('anasayfa')
                 ->with('mesaj_tur', 'info')
                 ->with('mesaj', 'Ödeme işlemi için sepetinizde bir ürün bulunmalıdır.');
         }
 
         $kullanici_detay = auth()->user()->detay;
-        $kategoriler=Kategori::whereRaw('ust_id is null')->get();
+        $kategoriler = Kategori::whereRaw('ust_id is null')->get();
 
-        return view('odeme', compact('kullanici_detay','kategoriler'));
+        return view('odeme', compact('kullanici_detay', 'kategoriler','currentYear'));
     }
+
     public function odemeyap()
     {
         $siparis = request()->all();
