@@ -21,14 +21,14 @@ class KullaniciTableSeeder extends Seeder
         KullaniciDetay::truncate();
 
         $kullanici_yonetici = Kullanici::create([
-            'adsoyad'     => 'İrem Akalp ',
-            'email'       => 'iremklp@gmail.com',
+            'adsoyad'     => 'Admin admiin',
+            'email'       => 'admin@gmail.com',
             'sifre'       => bcrypt('123456'),
             'aktif_mi'    => 1,
             'yonetici_mi' => 1
         ]);
         $kullanici_yonetici->detay()->create([
-            'adres'       => 'Kocaeli',
+            'adres'       => 'İstanbul',
             'telefon'     => '(312) 444 55 66',
         ]);
 
